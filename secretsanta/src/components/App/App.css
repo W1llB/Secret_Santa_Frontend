@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --primary-colour: #EA4630;
+  --seccondary-colour: #146B3A;
+  --third-colour: #165B33;
+  --textcolour: #FFFFFF;
+  --fouth-colour: #EA4630;
+
+}
+
+.App {
+  text-align: center;
+}
+
+
+/* Header Container */
+.header {
+  margin: auto;
+  background-color: var(--third-colour);
+  color: white;
+  padding: 20px;
+}
+
+/* Div Container for form and card */
+
+.divsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: 30px;
+  padding: 30px;
+
+}
+
+/* Form  Container */
+
+.formContainer {
+  background-color: var(--primary-colour);
+  color: var(--textcolour);
+  font-size: 1.5em;
+  border-radius: 10px;
+  padding: 30px;
+} 
+
+/* Participant Form Section */
+
+.participantFormSection {
+  margin: 20px;
+}
+
+.participantFormButtons {
+  width: 50px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 5px;
+  color: var(--textcolour);
+  background-color: var(--seccondary-colour); 
+  cursor: pointer;
+  border: solid 2px var(--textcolour); 
+  font-weight: bold;
+}
+
+.participantFormButtons:hover {
+  background-color: #BB2528;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
