@@ -1,14 +1,15 @@
 import React from "react";
+import { useState } from "react";
 
-function ParticipantList() {
+
+function ParticipantList({key, name}) {
 
     return (
-        <form className="participantFormSection">
-            <label for="participantName">New Participant:</label><br />
-            <input type="text" id="participantName" name="participantName" value="New Participant"/>
-            <button className="participantFormButtons">Add</button>
+        <div className="participantDiv" key={key}>
+            <label for="participantName">New Participant</label><br />
+            <input type="text" id="participantName" name={name} defaultValue="New Participant"/>
             <button className="participantFormButtons">Delete</button>
-        </form>
+        </div>
     )
 }
 
