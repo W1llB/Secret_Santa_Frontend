@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useFetch from '../../hooks/useFetch';
 
 import '../App/App.css';
 import Header from '../Header/header.js';
@@ -10,14 +11,10 @@ import Members from '../Members';
 function App() {
 
   // Groupname State
-  const [groupName, setGroupName] = useState(0);
-    
-  // Deadline Date State
-  const [deadline, setDealine] = useState(0);
+  const [groupName, setGroupName] = useState(null);
 
-  // Budget State
-  const [buget, setBudget] = useState(0);
-
+  const {data, error} = useFetch('http://localhost:3001/santa/', 'Taylors Secret Santa')
+  console.log(data)
   // Handle Change function>
   function handleChange(e) {
     setGroupName({
@@ -27,13 +24,15 @@ function App() {
     console.log(groupName);
   }
 
+  
+
 
   return (
     <div className="App">
       <Header></Header>
 
       <div className='divsContainer'>
-        <GeneralForm groupNameChange={handleChange}></GeneralForm>
+        <GeneralForm handleChange={handleChange}></GeneralForm>
         <Members></Members>
       </div>
       

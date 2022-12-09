@@ -9,7 +9,8 @@ function GeneralForm({handleChange}) {
 
 
 
-    function addMemberClick() {
+    function addMemberClick(e) {
+        e.preventDefault()
         setCount( count + 1 );
         console.log(count);
         // let newArray = [...countArray, count];
@@ -17,8 +18,6 @@ function GeneralForm({handleChange}) {
     }
 
     return (
-        <div>
-
             <form className="formContainer">
                 <label for="gname">Group Name:</label><br />
                 <input type="text" id="gname" name="gname" onChange={handleChange}/><br />
@@ -30,7 +29,7 @@ function GeneralForm({handleChange}) {
                 <i>£</i><input type="number" id="budget" name="budget" onChange={handleChange}/><br />
 
                 
-                <button className="participantFormButtons" onClick={addMemberClick}>Add</button>
+                <button className="participantFormButtons" onClick={(e) => addMemberClick(e)}>Add</button>
                 <div className="listContainer">
                     {Array.from(Array(count)).map((c, index) => {
                         return (
@@ -39,11 +38,9 @@ function GeneralForm({handleChange}) {
                         })
                     }
                 </div>
+                <button className="generateButton">Generate</button>
+
             </form>
-
-            <button className="generateButton">Generate</button>
-
-        </div>
     )
 }
 
