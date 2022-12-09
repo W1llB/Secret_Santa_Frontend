@@ -7,7 +7,10 @@ function GeneralForm({handleChange}) {
     const [count, setCount] = useState(1);
     // const [countArray, setCountArray] = useState([1]);
 
-
+    function handleDelete(e){
+        e.preventDefault()
+        setCount(count-1)
+    }
 
     function addMemberClick(e) {
         e.preventDefault()
@@ -33,7 +36,7 @@ function GeneralForm({handleChange}) {
                 <div className="listContainer">
                     {Array.from(Array(count)).map((c, index) => {
                         return (
-                            <ParticipantList key={c} name={index}></ParticipantList>
+                            <ParticipantList key={c} name={index} handleClick={handleDelete}></ParticipantList>
                             )
                         })
                     }
