@@ -1,7 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import ParticipantList from "../ParticipantList/participantList";
 
 function GeneralForm() {
+
+    // Groupname State
+    const [groupName, setGroupName] = useState(0);
+    
+    // Deadline Date State
+    const [deadline, setDealine] = useState(0);
+
+    // Budget State
+    const [buget, setBudget] = useState(0);
     
     return (
         <form className="formContainer">

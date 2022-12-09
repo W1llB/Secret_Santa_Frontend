@@ -7,7 +7,6 @@
   --third-colour: #165B33;
   --textcolour: #FFFFFF;
   --fouth-colour: #EA4630;
-
 }
 
 .App {
@@ -28,7 +27,7 @@
 .divsContainer {
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  justify-content: space-evenly;
   margin: 30px;
   padding: 30px;
 
@@ -42,6 +41,7 @@
   font-size: 1.5em;
   border-radius: 10px;
   padding: 30px;
+  text-align: center;
 } 
 
 /* Participant Form Section */
@@ -61,6 +61,19 @@
   border: solid 2px var(--textcolour); 
   font-weight: bold;
 }
+
+/* Members Card Component */
+.cardComponent {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--seccondary-colour);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--textcolour);
+
+} 
 
 .participantFormButtons:hover {
   background-color: #BB2528;
