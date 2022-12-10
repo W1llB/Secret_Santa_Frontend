@@ -1,14 +1,14 @@
 import {useState, useEffect} from 'react'
 
-function useFetch(url, groupName) {
+function useFetch(url, inputData, method) {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null)
 
-    console.log(groupName)
     useEffect(() =>{
         fetch(url, {
+          method: method,
           headers: { Accept: "application/json" },
-          body: {groupName: groupName}
+          body: {payload: inputData}
         })
           .then((res) => res.json())
           .then((data) => {
@@ -19,7 +19,7 @@ function useFetch(url, groupName) {
             setData(null);
             setError(err);
         });
-      },[url]);
+      },[inputData]);
     return {data, error};
 }
 
