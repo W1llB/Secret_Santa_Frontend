@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import {useState } from 'react';
 import useRandomiser from '../../hooks/useRandomiser/useRandomiser';
+import { PairsContext } from '../../Contexts/pairs-context';
 // import useFetch from '../../hooks/useFetch/useFetch';
 
 import '../App/App.css';
 import Header from '../Header/header.js';
 import GeneralForm from '../GeneralForm/generalForm';
-import Members from '../Members';
+import MembersList from '../MembersList';
 
 
 
@@ -16,10 +17,11 @@ function App() {
   const [inputMembers, setInputMembers] = useState(null);
   const [finalGroup, setFinalGroup] = useState(null);
 
+  //context for randoms pairs
 
+  //custom hook for random pairs
   const [pairArrays, pairRandomiser] = useRandomiser([], inputMembers)
 
-  // const {data, error} = useFetch('http://localhost:3001/santa/',)
 
   // Handle Change function>
   function handleChangeDetails(e) {
@@ -27,7 +29,6 @@ function App() {
       ...inputDetails, 
       [e.target.name] : e.target.value
     });
-    console.log(inputDetails);
   }
 
   function handleChangeMembers(e) {
@@ -35,7 +36,6 @@ function App() {
       ...inputMembers, 
       [e.target.name] : e.target.value
     });
-    console.log(inputMembers);
   }
 
 
@@ -58,7 +58,9 @@ function App() {
          handleChangeMembers={handleChangeMembers}
          handleClick={generateButtonClick}
          ></GeneralForm>
-        <Members></Members>
+         <PairsContext.Provider value={finalGroup}>
+        <MembersList></MembersList>
+        </PairsContext.Provider>
       </div>
       
     </div>
