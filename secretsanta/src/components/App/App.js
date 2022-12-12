@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useRandomiser from '../../hooks/useRandomiser/useRandomiser';
 // import useFetch from '../../hooks/useFetch/useFetch';
 
 import '../App/App.css';
@@ -13,7 +14,10 @@ function App() {
   // Groupname State
   const [inputDetails, setInputDetails] = useState(null);
   const [inputMembers, setInputMembers] = useState(null);
-  const [finalGroup, setFinalGroup] = useState(null)
+  const [finalGroup, setFinalGroup] = useState(null);
+
+
+  const [pairArrays, pairRandomiser] = useRandomiser([], inputMembers)
 
   // const {data, error} = useFetch('http://localhost:3001/santa/',)
 
@@ -38,8 +42,8 @@ function App() {
   function generateButtonClick(e) {
     e.preventDefault()
     const inputDetailsClone = JSON.parse(JSON.stringify(inputDetails));
-    const inputMembersClone = JSON.parse(JSON.stringify(inputMembers));
-    setFinalGroup([inputDetailsClone, inputMembersClone])
+    pairRandomiser(inputMembers)
+    setFinalGroup([inputDetailsClone, pairArrays])
     console.log(finalGroup)
   }
 
