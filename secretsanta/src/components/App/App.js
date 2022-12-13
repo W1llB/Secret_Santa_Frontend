@@ -17,7 +17,6 @@ function App() {
   const [inputMembers, setInputMembers] = useState(null);
   const [finalGroup, setFinalGroup] = useState(null);
 
-  //context for randoms pairs
 
   //custom hook for random pairs
   const [pairArrays, pairRandomiser] = useRandomiser([], inputMembers)
