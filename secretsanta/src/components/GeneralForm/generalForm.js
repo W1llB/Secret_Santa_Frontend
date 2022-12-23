@@ -22,16 +22,24 @@ function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick}) {
 
     return (
             <form className="formContainer">
-                <label htmlFor="gname">Group Name:</label><br />
-                <input type="text" id="gname" name="gname" onChange={handleChangeDetails}/><br />
-                
-                <label htmlFor="deadline">Deadline:</label><br />
-                <input type="date" id="deadline" name="deadline" onChange={handleChangeDetails}/><br />
 
-                <label htmlFor="budget">Budget</label><br />
-                <i>£: </i><input type="number" id="budget" name="budget" onChange={handleChangeDetails}/><br />
+                <div className="inputFieldContainer">
+                    <label htmlFor="gname">Group Name: </label>
+                    <input type="text" id="gname" name="gname" onChange={handleChangeDetails}/>
+                </div>
 
-                
+                <div className="inputFieldContainer">
+                    <label htmlFor="budget">Budget (£): </label> 
+                    <input type="number" id="budget" name="budget" onChange={handleChangeDetails}/>
+                </div>
+
+                <div className="inputFieldContainer">
+                    <label htmlFor="deadline">Deadline:</label>
+                    <input type="date" id="deadline" name="deadline" onChange={handleChangeDetails}/><br />
+                </div>
+
+
+
                 <button className="participantFormButtons" onClick={(e) => addMemberClick(e)}>Add</button>
                 <div className="listContainer">
                     {Array.from(Array(count)).map((c, index) => {

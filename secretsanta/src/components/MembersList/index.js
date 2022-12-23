@@ -14,7 +14,7 @@ function MembersList() {
 
     return (
         <div className="listTitle">
-            <h3 className="listTitle">Group's Secret Santa</h3><br />
+            <h3 className="listHeader">Group's Secret Santa</h3><br />
                 <div>
                     {pairsObjectArray.map((pairs) =>{
                         return (

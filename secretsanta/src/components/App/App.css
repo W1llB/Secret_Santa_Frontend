@@ -1,134 +1,74 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  --primary-colour: #EA4630;
-  --secondary-colour: #146B3A;
-  --third-colour: #165B33;
-  --textcolour: #FFFFFF;
-  --fouth-colour: #EA4630;
-}
-
-.App {
-  text-align: center;
+    --primary-colour:#146b3a;
+    --xmas-red: #BB2528;
 }
 
 body {
-  background-image: url(../../../bakcgroundIMages.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+    background-color: var(--xmas-red);
+
 }
 
-/* Header Container */
+.App {
+    text-align: center;
+}
+
 .header {
-  margin: auto;
-  background-color: var(--third-colour);
-  color: white;
-  padding: 20px;
+    color: white;
+    background-color: var(--xmas-red);
+    margin: auto;
+    padding: 25px;
 }
-
-/* Div Container for form and card */
-
-.divsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 30px;
-  padding: 30px;
-
+.divsContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+     color: white;
+    font: bold;
 }
-
-/* Form  Container */
 
 .formContainer {
-  background-color: var(--primary-colour);
-  color: var(--textcolour);
-  font-size: 1.5em;
-  border-radius: 10px;
-  padding: 30px;
-  text-align: center;
-} 
-
-/* Participant Form Section */
-
-.participantDiv {
-  margin: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content:space-around;
+    margin: 20px;
+    padding: 20px;
+    /* width: 50%; */
+    background-color: var(--primary-colour);
 }
 
-.participantFormButtons {
-  width: 50px;
-  height: 30px;
-  margin: 5px;
-  border-radius: 5px;
-  color: var(--textcolour);
-  background-color: var(--secondary-colour); 
-  cursor: pointer;
-  border: solid 2px var(--textcolour); 
-  font-weight: bold;
+.inputFieldContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin: 10px;
 }
 
-/*Members Title*/
-.listTitle{
-  background-color: var(--secondary-colour);
-  color: var(--textcolour);
-  padding: 5px;
-  border-radius: 10px;
+.listTitle {
+    display: flex;
+    flex-direction: column;
+    align-items:stretch;
+    background-color: var(--primary-colour);
+    padding: 20px;
+    /* width: 50%; */
 
+    
 }
 
-/* Members Card Component */
+.listHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .cardComponent {
-  display: flex;
-  flex-direction: row;
-  background-color: var(--secondary-colour);
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-  margin: 10px;
-  border-radius: 10px;
-  border-width: 10px;
-  border-style:inset;
-  border-color: var(--textcolour);
-  color: var(--textcolour);
-
-} 
-.participantFormButtons{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.participantFormButtons:hover {
-  background-color: #BB2528;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: var(--primary-colour);
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

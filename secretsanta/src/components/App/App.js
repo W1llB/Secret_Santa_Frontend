@@ -43,7 +43,7 @@ function App() {
     const inputDetailsClone = JSON.parse(JSON.stringify(inputDetails));
     pairRandomiser(inputMembers)
     setFinalGroup([inputDetailsClone, pairArrays])
-    console.log(finalGroup)
+    console.log(`${finalGroup}finalgroup`)
   }
 
 
