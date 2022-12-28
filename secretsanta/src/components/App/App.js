@@ -1,4 +1,4 @@
-import {useState } from 'react';
+import {useEffect, useState } from 'react';
 import useRandomiser from '../../hooks/useRandomiser/useRandomiser';
 import { PairsContext } from '../../Contexts/pairs-context';
 // import useFetch from '../../hooks/useFetch/useFetch';
@@ -13,9 +13,10 @@ import MembersList from '../MembersList';
 function App() {
 
   // Groupname State
-  const [inputDetails, setInputDetails] = useState(null);
+  const [inputDetails, setInputDetails] = useState({gname: '', budget: '', deadline: ''});
   const [inputMembers, setInputMembers] = useState(null);
   const [finalGroup, setFinalGroup] = useState(null);
+  const [listGenerated, setListGenerated] = useState(false)
 
 
   //custom hook for random pairs
@@ -28,6 +29,8 @@ function App() {
       ...inputDetails, 
       [e.target.name] : e.target.value
     });
+    console.log(inputDetails)
+
   }
 
   function handleChangeMembers(e) {
@@ -35,15 +38,23 @@ function App() {
       ...inputMembers, 
       [e.target.name] : e.target.value
     });
+    console.log(inputMembers)
   }
+
+  useEffect(()=>{
+    pairRandomiser(inputMembers)
+
+  },[inputMembers])
 
 
   function generateButtonClick(e) {
     e.preventDefault()
-    const inputDetailsClone = JSON.parse(JSON.stringify(inputDetails));
-    pairRandomiser(inputMembers)
-    setFinalGroup([inputDetailsClone, pairArrays])
-    console.log(finalGroup)
+    // const inputDetailsClone = JSON.parse(JSON.stringify(inputDetails));
+    // console.log(inputDetailsClone,'clone')
+    setFinalGroup([inputDetails, pairArrays])
+    setInputDetails({gname: '', budget: '', deadline: ''})
+    setListGenerated(true)
+    console.log(`${finalGroup}finalgroup`)
   }
 
 
@@ -56,6 +67,8 @@ function App() {
          handleChangeDetails={handleChangeDetails}
          handleChangeMembers={handleChangeMembers}
          handleClick={generateButtonClick}
+         inputDetails={inputDetails}
+         listGenerated={listGenerated}
          ></GeneralForm>
          <PairsContext.Provider value={finalGroup}>
         <MembersList></MembersList>

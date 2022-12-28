@@ -1,134 +1,114 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  --primary-colour: #EA4630;
-  --secondary-colour: #146B3A;
-  --third-colour: #165B33;
-  --textcolour: #FFFFFF;
-  --fouth-colour: #EA4630;
-}
-
-.App {
-  text-align: center;
+    --primary-colour:#146b3a;
+    --xmas-red: #BB2528;
 }
 
 body {
-  background-image: url(../../../bakcgroundIMages.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+    background-color: var(--xmas-red);
+
 }
 
-/* Header Container */
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .header {
-  margin: auto;
-  background-color: var(--third-colour);
-  color: white;
-  padding: 20px;
+    color: white;
+    background-color: var(--primary-colour);
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 25px;
 }
 
-/* Div Container for form and card */
-
-.divsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 30px;
-  padding: 30px;
+.divsContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    color: white;
+    font: bold;
+    width: auto;
+    height: auto;
+    background-color: var(--primary-colour);
+    border-radius: 2.5%;
 
 }
-
-/* Form  Container */
 
 .formContainer {
-  background-color: var(--primary-colour);
-  color: var(--textcolour);
-  font-size: 1.5em;
-  border-radius: 10px;
-  padding: 30px;
-  text-align: center;
-} 
-
-/* Participant Form Section */
-
-.participantDiv {
-  margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    margin-right: 10px;
+    padding: 20px;
+    /* background-color: var(--primary-colour);
+    border-radius: 5%; */
 }
 
-.participantFormButtons {
-  width: 50px;
-  height: 30px;
-  margin: 5px;
-  border-radius: 5px;
-  color: var(--textcolour);
-  background-color: var(--secondary-colour); 
-  cursor: pointer;
-  border: solid 2px var(--textcolour); 
-  font-weight: bold;
+.listTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    margin-left: 10px;
+    padding: 20px;
+    /* background-color: var(--primary-colour);
+    border-radius: 5%; */
 }
 
-/*Members Title*/
-.listTitle{
-  background-color: var(--secondary-colour);
-  color: var(--textcolour);
-  padding: 5px;
-  border-radius: 10px;
-
+.inputFieldContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
 }
 
-/* Members Card Component */
+.particpantListItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+
+.listHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .cardComponent {
-  display: flex;
-  flex-direction: row;
-  background-color: var(--secondary-colour);
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-  margin: 10px;
-  border-radius: 10px;
-  border-width: 10px;
-  border-style:inset;
-  border-color: var(--textcolour);
-  color: var(--textcolour);
-
-} 
-.participantFormButtons{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin: 5px;
+    justify-content: center;
+    background-color: var(--primary-colour);
+    border: 3px solid white;
+    
 }
-.participantFormButtons:hover {
-  background-color: #BB2528;
+.generateButtonContainer {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.generateButton {
+color: rgb(0, 0, 0); font-size: 16px; line-height: 16px; padding: 11px; border-radius: 10px; font-family: Georgia, serif; font-weight: normal; text-decoration:solid; font-style: normal; font-variant: normal; text-transform: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+.generateButton:hover {
+background: #ffffffcc; }
+.generateButton:active {
+background: #FFFFFF; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* border: 4px solid rgb(187, 37, 40); */

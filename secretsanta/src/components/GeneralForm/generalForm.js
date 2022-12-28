@@ -1,11 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ParticipantList from "../ParticipantList/participantList";
 
-function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick}) {
+function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick, inputDetails, listGenerated}) {
 
     const [count, setCount] = useState(1);
-    // const [countArray, setCountArray] = useState([1]);
+    
+     useEffect(() => {
+        if(listGenerated) {setCount(0)};
+     }, [listGenerated])
 
     function handleDelete(e){
         e.preventDefault()
@@ -16,32 +19,55 @@ function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick}) {
         e.preventDefault()
         setCount( count + 1 );
         console.log(count);
-        // let newArray = [...countArray, count];
-        // setCountArray(countArray);
     }
 
     return (
             <form className="formContainer">
-                <label htmlFor="gname">Group Name:</label><br />
-                <input type="text" id="gname" name="gname" onChange={handleChangeDetails}/><br />
-                
-                <label htmlFor="deadline">Deadline:</label><br />
-                <input type="date" id="deadline" name="deadline" onChange={handleChangeDetails}/><br />
 
-                <label htmlFor="budget">Budget</label><br />
-                <i>£: </i><input type="number" id="budget" name="budget" onChange={handleChangeDetails}/><br />
+                <div className="inputFieldContainer">
+                    <label htmlFor="gname">Group Name: </label>
+                    <input type="text" id="gname"
+                     name="gname" 
+                     onChange={handleChangeDetails}
+                    value={inputDetails.gname}
+                     />
+                </div>
 
-                
-                <button className="participantFormButtons" onClick={(e) => addMemberClick(e)}>Add</button>
-                <div className="listContainer">
+                <div className="inputFieldContainer">
+                    <label htmlFor="budget">Budget (£): </label> 
+                    <input type="number" 
+                    id="budget" 
+                    name="budget" 
+                    onChange={handleChangeDetails}
+                    value={inputDetails.budget}
+                    />
+                </div>
+
+                <div className="inputFieldContainer">
+                    <label htmlFor="deadline">Deadline:</label>
+                    <input type="date" 
+                    id="deadline" 
+                    name="deadline" 
+                    onChange={handleChangeDetails}
+                    value={inputDetails.deadline}
+                    />
+                </div>
+
+
+                <div>
+                    <button className="participantFormButtons" onClick={(e) => addMemberClick(e)}>Add Person</button>
+                </div>
+                <ol className="listContainer">
                     {Array.from(Array(count)).map((c, index) => {
                         return (
                             <ParticipantList key={c} name={index} handleClick={handleDelete} handleChange={handleChangeMembers}></ParticipantList>
                             )
                         })
                     }
-                </div>
-                <button className="generateButton" onClick={(e) => handleClick(e)}>Generate</button>
+                </ol>
+                <div className="generateButtonContainer">
+                    <button className="generateButton" onClick={(e) => handleClick(e)}>Generate random pairs!</button>
+                    </div>
 
             </form>
     )

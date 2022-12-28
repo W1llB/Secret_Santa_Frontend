@@ -1,18 +1,18 @@
 import React from "react";
+import '../App/App.css';
 
 
 function ParticipantList({key, name, handleClick, handleChange}) {
 
     return (
-        <div className="participantDiv" key={key}>
-            <label htmlFor="participantName">New Participant</label><br />
+        <li className="participantListItem" key={key}>
             <input 
             type="text" id="participantName" 
             name={name} 
             onChange ={handleChange}
             />
             <button className="participantFormButtons" onClick={handleClick}>Delete</button>
-        </div>
+        </li>
     )
 }
 
