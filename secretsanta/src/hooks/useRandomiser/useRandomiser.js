@@ -17,6 +17,7 @@ import { useState } from "react";
 function useRandomiser(initialValue, giftGivers){
     const [pairArrays, setPairArrays] = useState(initialValue)
     function pairRandomiser(giftGiversObject) {
+        try {
         let giftGivers = Object.values(giftGiversObject)
         var a = giftGivers.slice(0);
         var b = giftGivers.slice(0);
@@ -39,6 +40,9 @@ function useRandomiser(initialValue, giftGivers){
         }
 
         setPairArrays(result)
+        } catch (error) {
+            console.log(error)
+        }
     }
     return [pairArrays, pairRandomiser]
 }

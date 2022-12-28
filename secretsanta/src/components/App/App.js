@@ -1,4 +1,4 @@
-import {useState } from 'react';
+import {useEffect, useState } from 'react';
 import useRandomiser from '../../hooks/useRandomiser/useRandomiser';
 import { PairsContext } from '../../Contexts/pairs-context';
 // import useFetch from '../../hooks/useFetch/useFetch';
@@ -12,9 +12,8 @@ import MembersList from '../MembersList';
 
 function App() {
 
-  const initialDetailsState = {gname: '', budget: '', deadline: ''}
   // Groupname State
-  const [inputDetails, setInputDetails] = useState(initialDetailsState);
+  const [inputDetails, setInputDetails] = useState({gname: '', budget: '', deadline: ''});
   const [inputMembers, setInputMembers] = useState(null);
   const [finalGroup, setFinalGroup] = useState(null);
   const [listGenerated, setListGenerated] = useState(false)
@@ -42,13 +41,18 @@ function App() {
     console.log(inputMembers)
   }
 
+  useEffect(()=>{
+    pairRandomiser(inputMembers)
+
+  },[inputMembers])
+
 
   function generateButtonClick(e) {
     e.preventDefault()
-    const inputDetailsClone = JSON.parse(JSON.stringify(inputDetails));
-    pairRandomiser(inputMembers)
-    setFinalGroup([inputDetailsClone, pairArrays])
-    setInputDetails(initialDetailsState)
+    // const inputDetailsClone = JSON.parse(JSON.stringify(inputDetails));
+    // console.log(inputDetailsClone,'clone')
+    setFinalGroup([inputDetails, pairArrays])
+    setInputDetails({gname: '', budget: '', deadline: ''})
     setListGenerated(true)
     console.log(`${finalGroup}finalgroup`)
   }

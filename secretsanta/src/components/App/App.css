@@ -10,39 +10,60 @@ body {
 
 .App {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .header {
     color: white;
-    background-color: var(--xmas-red);
-    margin: auto;
+    background-color: var(--primary-colour);
+    width: 100%;
+    margin-bottom: 30px;
     padding: 25px;
 }
+
 .divsContainer{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
-     color: white;
+    color: white;
     font: bold;
+    width: auto;
+    height: auto;
+    background-color: var(--primary-colour);
+    border-radius: 2.5%;
+
 }
 
 .formContainer {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content:space-around;
-    margin: 20px;
+    align-items: center;
+    justify-content:center;
+    margin-right: 10px;
     padding: 20px;
-    /* width: 50%; */
-    background-color: var(--primary-colour);
+    /* background-color: var(--primary-colour);
+    border-radius: 5%; */
+}
+
+.listTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    margin-left: 10px;
+    padding: 20px;
+    /* background-color: var(--primary-colour);
+    border-radius: 5%; */
 }
 
 .inputFieldContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content:center;
+    align-items: center;
     padding: 10px;
     margin: 10px;
 }
@@ -50,21 +71,12 @@ body {
 .particpantListItem {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 10px;
     margin: 10px;
 }
 
-.listTitle {
-    display: flex;
-    flex-direction: column;
-    align-items:stretch;
-    background-color: var(--primary-colour);
-    padding: 20px;
-    /* width: 50%; */
 
-    
-}
 
 .listHeader {
     display: flex;
@@ -74,9 +86,29 @@ body {
 
 .cardComponent {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin: 5px;
+    justify-content: center;
     background-color: var(--primary-colour);
+    border: 3px solid white;
     
 }
+.generateButtonContainer {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.generateButton {
+color: rgb(0, 0, 0); font-size: 16px; line-height: 16px; padding: 11px; border-radius: 10px; font-family: Georgia, serif; font-weight: normal; text-decoration:solid; font-style: normal; font-variant: normal; text-transform: none;
+}
 
+.generateButton:hover {
+background: #ffffffcc; }
+.generateButton:active {
+background: #FFFFFF; }
+
+/* border: 4px solid rgb(187, 37, 40); */

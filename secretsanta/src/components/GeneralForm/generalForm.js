@@ -54,8 +54,9 @@ function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick, inp
                 </div>
 
 
-
-                <button className="participantFormButtons" onClick={(e) => addMemberClick(e)}>Add Person</button>
+                <div>
+                    <button className="participantFormButtons" onClick={(e) => addMemberClick(e)}>Add Person</button>
+                </div>
                 <ol className="listContainer">
                     {Array.from(Array(count)).map((c, index) => {
                         return (
@@ -64,7 +65,9 @@ function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick, inp
                         })
                     }
                 </ol>
-                <button className="generateButton" onClick={(e) => handleClick(e)}>Generate</button>
+                <div className="generateButtonContainer">
+                    <button className="generateButton" onClick={(e) => handleClick(e)}>Generate random pairs!</button>
+                    </div>
 
             </form>
     )
