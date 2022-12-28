@@ -1,11 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ParticipantList from "../ParticipantList/participantList";
 
-function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick, inputDetails}) {
+function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick, inputDetails, listGenerated}) {
 
     const [count, setCount] = useState(1);
-    // const [countArray, setCountArray] = useState([1]);
+    
+     useEffect(() => {
+        if(listGenerated) {setCount(0)};
+     }, [listGenerated])
 
     function handleDelete(e){
         e.preventDefault()
@@ -16,8 +19,6 @@ function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick, inp
         e.preventDefault()
         setCount( count + 1 );
         console.log(count);
-        // let newArray = [...countArray, count];
-        // setCountArray(countArray);
     }
 
     return (

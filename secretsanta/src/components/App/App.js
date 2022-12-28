@@ -17,6 +17,7 @@ function App() {
   const [inputDetails, setInputDetails] = useState(initialDetailsState);
   const [inputMembers, setInputMembers] = useState(null);
   const [finalGroup, setFinalGroup] = useState(null);
+  const [listGenerated, setListGenerated] = useState(false)
 
 
   //custom hook for random pairs
@@ -48,6 +49,7 @@ function App() {
     pairRandomiser(inputMembers)
     setFinalGroup([inputDetailsClone, pairArrays])
     setInputDetails(initialDetailsState)
+    setListGenerated(true)
     console.log(`${finalGroup}finalgroup`)
   }
 
@@ -62,6 +64,7 @@ function App() {
          handleChangeMembers={handleChangeMembers}
          handleClick={generateButtonClick}
          inputDetails={inputDetails}
+         listGenerated={listGenerated}
          ></GeneralForm>
          <PairsContext.Provider value={finalGroup}>
         <MembersList></MembersList>
