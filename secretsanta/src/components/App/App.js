@@ -12,8 +12,9 @@ import MembersList from '../MembersList';
 
 function App() {
 
+  const initialDetailsState = {gname: '', budget: '', deadline: ''}
   // Groupname State
-  const [inputDetails, setInputDetails] = useState(null);
+  const [inputDetails, setInputDetails] = useState(initialDetailsState);
   const [inputMembers, setInputMembers] = useState(null);
   const [finalGroup, setFinalGroup] = useState(null);
 
@@ -28,6 +29,8 @@ function App() {
       ...inputDetails, 
       [e.target.name] : e.target.value
     });
+    console.log(inputDetails)
+
   }
 
   function handleChangeMembers(e) {
@@ -35,6 +38,7 @@ function App() {
       ...inputMembers, 
       [e.target.name] : e.target.value
     });
+    console.log(inputMembers)
   }
 
 
@@ -43,6 +47,7 @@ function App() {
     const inputDetailsClone = JSON.parse(JSON.stringify(inputDetails));
     pairRandomiser(inputMembers)
     setFinalGroup([inputDetailsClone, pairArrays])
+    setInputDetails(initialDetailsState)
     console.log(`${finalGroup}finalgroup`)
   }
 
@@ -56,6 +61,7 @@ function App() {
          handleChangeDetails={handleChangeDetails}
          handleChangeMembers={handleChangeMembers}
          handleClick={generateButtonClick}
+         inputDetails={inputDetails}
          ></GeneralForm>
          <PairsContext.Provider value={finalGroup}>
         <MembersList></MembersList>
