@@ -1,5 +1,5 @@
-import { createContext } from "react"
+import { createContext } from "react";
 
 const PairsContext = createContext(null);
 
-export {PairsContext};
+export { PairsContext };

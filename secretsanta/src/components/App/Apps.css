@@ -2,11 +2,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  --primary-colour: #EA4630;
-  --secondary-colour: #146B3A;
-  --third-colour: #165B33;
-  --textcolour: #FFFFFF;
-  --fouth-colour: #EA4630;
+  --primary-colour: #ea4630;
+  --secondary-colour: #146b3a;
+  --third-colour: #165b33;
+  --textcolour: #ffffff;
+  --fouth-colour: #ea4630;
 }
 
 .App {
@@ -36,7 +36,6 @@ body {
   justify-content: space-evenly;
   margin: 30px;
   padding: 30px;
-
 }
 
 /* Form  Container */
@@ -48,7 +47,7 @@ body {
   border-radius: 10px;
   padding: 30px;
   text-align: center;
-} 
+}
 
 /* Participant Form Section */
 
@@ -62,19 +61,18 @@ body {
   margin: 5px;
   border-radius: 5px;
   color: var(--textcolour);
-  background-color: var(--secondary-colour); 
+  background-color: var(--secondary-colour);
   cursor: pointer;
-  border: solid 2px var(--textcolour); 
+  border: solid 2px var(--textcolour);
   font-weight: bold;
 }
 
 /*Members Title*/
-.listTitle{
+.listTitle {
   background-color: var(--secondary-colour);
   color: var(--textcolour);
   padding: 5px;
   border-radius: 10px;
-
 }
 
 /* Members Card Component */
@@ -88,19 +86,18 @@ body {
   margin: 10px;
   border-radius: 10px;
   border-width: 10px;
-  border-style:inset;
+  border-style: inset;
   border-color: var(--textcolour);
   color: var(--textcolour);
-
-} 
-.participantFormButtons{
+}
+.participantFormButtons {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .participantFormButtons:hover {
-  background-color: #BB2528;
+  background-color: #bb2528;
 }
 
 @media (prefers-reduced-motion: no-preference) {
