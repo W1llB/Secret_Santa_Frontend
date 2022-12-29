@@ -1,89 +1,104 @@
 import React from "react";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import ParticipantList from "../ParticipantList/participantList";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
+function GeneralForm({
+  handleChangeDetails,
+  handleChangeMembers,
+  handleClick,
+  inputDetails,
+  listGenerated,
+}) {
+  const [count, setCount] = useState(1);
 
-
-function GeneralForm({ handleChangeDetails, handleChangeMembers, handleClick, inputDetails, listGenerated }) {
-
-
-    const [count, setCount] = useState(1);
-    
-     useEffect(() => {
-        if(listGenerated) {setCount(0)}
-     }, [listGenerated])
-
-    function handleDelete(e){
-        e.preventDefault()
-        setCount(count-1)
+  useEffect(() => {
+    if (listGenerated) {
+      setCount(0);
     }
+  }, [listGenerated]);
 
-    function addMemberClick(e) {
-        e.preventDefault()
-        setCount( count + 1 );
-        console.log(count);
-    }
+  function handleDelete(e) {
+    e.preventDefault();
+    setCount(count - 1);
+  }
 
-    return (
-            <form className="formContainer">
+  function addMemberClick(e) {
+    e.preventDefault();
+    setCount(count + 1);
+    console.log(count);
+  }
 
-                <div className="inputFieldContainer">
-                    <label htmlFor="gname">Group Name: </label>
-                    <input type="text" id="gname"
-                     name="gname" 
-                     onChange={handleChangeDetails}
-                    value={inputDetails.gname}
-                     />
-                </div>
+  return (
+    <form className="formContainer">
+      <div className="inputFieldContainer">
+        <label htmlFor="gname">Group Name: </label>
+        <input
+          type="text"
+          id="gname"
+          name="gname"
+          onChange={handleChangeDetails}
+          value={inputDetails.gname}
+        />
+      </div>
 
-                <div className="inputFieldContainer">
-                    <label htmlFor="budget">Budget (£): </label> 
-                    <input type="number" 
-                    id="budget" 
-                    name="budget" 
-                    onChange={handleChangeDetails}
-                    value={inputDetails.budget}
-                    />
-                </div>
+      <div className="inputFieldContainer">
+        <label htmlFor="budget">Budget (£): </label>
+        <input
+          type="number"
+          id="budget"
+          name="budget"
+          onChange={handleChangeDetails}
+          value={inputDetails.budget}
+        />
+      </div>
 
-                <div className="inputFieldContainer">
-                    <label htmlFor="deadline">Deadline:</label>
-                    <input type="date" 
-                    id="deadline" 
-                    name="deadline" 
-                    onChange={handleChangeDetails}
-                    value={inputDetails.deadline}
-                    />
-                </div>
+      <div className="inputFieldContainer">
+        <label htmlFor="deadline">Deadline:</label>
+        <input
+          type="date"
+          id="deadline"
+          name="deadline"
+          onChange={handleChangeDetails}
+          value={inputDetails.deadline}
+        />
+      </div>
 
-
-                <div>
-                    <button className="participantFormButtons" onClick={(e) => addMemberClick(e)}>Add Person</button>
-                </div>
-                <ol className="listContainer">
-                    {Array.from(Array(count)).map((c, index) => {
-                        return (
-                            <ParticipantList key={c} name={index} handleClick={handleDelete} handleChange={handleChangeMembers}></ParticipantList>
-                            )
-                        })
-                    }
-                </ol>
-                <div className="generateButtonContainer">
-                    <button className="generateButton" onClick={(e) => handleClick(e)}>Generate random pairs!</button>
-                    </div>
-
-            </form>
-    )
+      <div>
+        <button
+          className="participantFormButtons"
+          onClick={(e) => addMemberClick(e)}
+        >
+          Add Person
+        </button>
+      </div>
+      <ol className="listContainer">
+        {Array.from(Array(count)).map((c, index) => {
+          return (
+            <ParticipantList
+              key={c}
+              name={index}
+              handleClick={handleDelete}
+              handleChange={handleChangeMembers}
+            ></ParticipantList>
+          );
+        })}
+      </ol>
+      <div className="generateButtonContainer">
+        <button className="generateButton" onClick={(e) => handleClick(e)}>
+          Generate random pairs!
+        </button>
+      </div>
+    </form>
+  );
 }
 
-
 GeneralForm.propTypes = {
-    handleChangeDetails: PropTypes.func,
-    handleChangeMembers: PropTypes.func,
-    handleClick: PropTypes.function,
-    inputDetails: PropTypes.object,
-    listGenerated: PropTypes.bool
-  };
-  
+  handleChangeDetails: PropTypes.func,
+  handleChangeMembers: PropTypes.func,
+  handleClick: PropTypes.function,
+  inputDetails: PropTypes.object,
+  listGenerated: PropTypes.bool,
+};
+
 export default GeneralForm;
