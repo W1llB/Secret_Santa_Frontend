@@ -1,13 +1,17 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 import ParticipantList from "../ParticipantList/participantList";
+import PropTypes from 'prop-types';
 
-function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick, inputDetails, listGenerated}) {
+
+
+function GeneralForm({ handleChangeDetails, handleChangeMembers, handleClick, inputDetails, listGenerated }) {
+
 
     const [count, setCount] = useState(1);
     
      useEffect(() => {
-        if(listGenerated) {setCount(0)};
+        if(listGenerated) {setCount(0)}
      }, [listGenerated])
 
     function handleDelete(e){
@@ -73,4 +77,13 @@ function GeneralForm({handleChangeDetails, handleChangeMembers, handleClick, inp
     )
 }
 
+
+GeneralForm.propTypes = {
+    handleChangeDetails: PropTypes.func,
+    handleChangeMembers: PropTypes.func,
+    handleClick: PropTypes.function,
+    inputDetails: PropTypes.object,
+    listGenerated: PropTypes.bool
+  };
+  
 export default GeneralForm;

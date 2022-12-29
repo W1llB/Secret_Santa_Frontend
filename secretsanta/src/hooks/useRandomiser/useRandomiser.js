@@ -14,7 +14,7 @@ import { useState } from "react";
 //     }
 // ]
 
-function useRandomiser(initialValue, giftGivers){
+function useRandomiser(initialValue){
     const [pairArrays, setPairArrays] = useState(initialValue)
     function pairRandomiser(giftGiversObject) {
         try {

@@ -1,8 +1,7 @@
 import {useEffect, useState } from 'react';
 import useRandomiser from '../../hooks/useRandomiser/useRandomiser';
 import { PairsContext } from '../../Contexts/pairs-context';
-// import useFetch from '../../hooks/useFetch/useFetch';
-
+import React from 'react';
 import '../App/App.css';
 import Header from '../Header/header.js';
 import GeneralForm from '../GeneralForm/generalForm';
@@ -78,5 +77,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;

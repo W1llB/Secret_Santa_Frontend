@@ -6,7 +6,7 @@ function MembersList() {
     const pairs = useContext(PairsContext)
     if (pairs === null) {
         return (<div className="listTitle">
-                <h3 className="listHeader">Group's Secret Santa</h3>
+                <h3 className="listHeader">Group&apos;s Secret Santa</h3>
                 <h4>Your Secret Santa list will show here</h4>
             </div>
         )
@@ -17,11 +17,11 @@ function MembersList() {
 
     return (
         <div className="listTitle">
-            <h3 className="listHeader">Group's Secret Santa</h3><br />
+            <h3 className="listHeader"> Group&apos;s Secret Santa</h3><br />
                 <div>
                     {pairsObjectArray.map((pairs) =>{
                         return (
-                        <div className="cardComponent">
+                        <div className="cardComponent" key={pairsObjectArray.indexOf(pairs)}>
                             <p><strong>{pairs.a}</strong> is gifting to <strong>{pairs.b}</strong>. <strong>Budget:</strong> £{pairsInfo.budget}. Gifts will be given on <strong>{pairsInfo.deadline}</strong>!
                             </p>
                             {/* <p>Budget: £{pairsInfo.budget}</p><br />
