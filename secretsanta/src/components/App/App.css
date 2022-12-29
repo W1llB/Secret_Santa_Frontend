@@ -1,114 +1,121 @@
 * {
-    --primary-colour:#146b3a;
-    --xmas-red: #BB2528;
+  --primary-colour: #146b3a;
+  --xmas-red: #bb2528;
 }
 
 body {
-    background-color: var(--xmas-red);
-
+  background-color: var(--xmas-red);
 }
 
 .App {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header {
-    color: white;
-    background-color: var(--primary-colour);
-    width: 100%;
-    margin-bottom: 30px;
-    padding: 25px;
+  color: white;
+  background-color: var(--primary-colour);
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 25px;
 }
 
-.divsContainer{
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    color: white;
-    font: bold;
-    width: auto;
-    height: auto;
-    background-color: var(--primary-colour);
-    border-radius: 2.5%;
-
+.divsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  color: white;
+  font: bold;
+  width: auto;
+  height: auto;
+  background-color: var(--primary-colour);
+  border-radius: 2.5%;
 }
 
 .formContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:center;
-    margin-right: 10px;
-    padding: 20px;
-    /* background-color: var(--primary-colour);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  padding: 20px;
+  /* background-color: var(--primary-colour);
     border-radius: 5%; */
 }
 
 .listTitle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: baseline;
-    margin-left: 10px;
-    padding: 20px;
-    /* background-color: var(--primary-colour);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+  margin-left: 10px;
+  padding: 20px;
+  /* background-color: var(--primary-colour);
     border-radius: 5%; */
 }
 
 .inputFieldContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    align-items: center;
-    padding: 10px;
-    margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
 }
 
 .particpantListItem {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 10px;
-    margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+  margin: 10px;
 }
 
-
-
 .listHeader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardComponent {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 5px;
-    margin: 5px;
-    justify-content: center;
-    background-color: var(--primary-colour);
-    border: 3px solid white;
-    
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin: 5px;
+  justify-content: center;
+  background-color: var(--primary-colour);
+  border: 3px solid white;
 }
 .generateButtonContainer {
-    display: flex; 
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 .generateButton {
-color: rgb(0, 0, 0); font-size: 16px; line-height: 16px; padding: 11px; border-radius: 10px; font-family: Georgia, serif; font-weight: normal; text-decoration:solid; font-style: normal; font-variant: normal; text-transform: none;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  line-height: 16px;
+  padding: 11px;
+  border-radius: 10px;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  text-decoration: solid;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
 }
 
 .generateButton:hover {
-background: #ffffffcc; }
+  background: #ffffffcc;
+}
 .generateButton:active {
-background: #FFFFFF; }
+  background: #ffffff;
+}
 
 /* border: 4px solid rgb(187, 37, 40); */

@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ParticipantList from "../ParticipantList/participantList";
 import PropTypes from "prop-types";
-
+//test
 function GeneralForm({
   handleChangeDetails,
   handleChangeMembers,
