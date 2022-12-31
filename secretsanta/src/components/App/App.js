@@ -44,8 +44,6 @@ function App() {
 
   function generateButtonClick(e) {
     e.preventDefault();
-    // const inputDetailsClone = JSON.parse(JSON.stringify(inputDetails));
-    // console.log(inputDetailsClone,'clone')
     setFinalGroup([inputDetails, pairArrays]);
     setInputDetails({ gname: "", budget: "", deadline: "" });
     setListGenerated(true);
