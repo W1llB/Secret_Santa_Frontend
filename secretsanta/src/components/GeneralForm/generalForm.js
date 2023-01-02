@@ -76,7 +76,7 @@ function GeneralForm({
         {Array.from(Array(count)).map((c, index) => {
           return (
             <ParticipantList
-              key={c}
+              key={index}
               name={`${index}`}
               handleClick={handleDelete}
               handleChange={handleChangeMembers}

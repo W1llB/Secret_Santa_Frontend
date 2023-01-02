@@ -2,9 +2,9 @@ import React from "react";
 import "../App/App.css";
 import PropTypes from "prop-types";
 
-function ParticipantList({ key, name, handleClick, handleChange }) {
+function ParticipantList({ name, handleClick, handleChange }) {
   return (
-    <li className="participantListItem" key={key}>
+    <li className="participantListItem">
       <input
         type="text"
         id="participantName"
@@ -19,7 +19,6 @@ function ParticipantList({ key, name, handleClick, handleChange }) {
 }
 
 ParticipantList.propTypes = {
-  key: PropTypes.number,
   name: PropTypes.string,
   handleClick: PropTypes.func,
   handleChange: PropTypes.func,
