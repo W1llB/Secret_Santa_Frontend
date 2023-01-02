@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { PairsContext } from "../../Contexts/pairs-context";
-import ClipboardCopy from "../ClipboardCopy";
+import ClipboardCopy from "../ClipboardCopy/index.js";
 
 function MembersList() {
   const pairs = useContext(PairsContext);
