@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { PairsContext } from "../../Contexts/pairs-context";
+import ClipboardCopy from "../ClipboardCopy";
 
 function MembersList() {
   const pairs = useContext(PairsContext);
@@ -33,16 +34,10 @@ function MembersList() {
                 {pairsInfo.budget}. Gifts will be given on{" "}
                 <strong>{pairsInfo.deadline}</strong>!
               </p>
-              {/* <p>Budget: £{pairsInfo.budget}</p><br />
-                            <p> Gifts will be given on {pairsInfo.deadline}</p><br /> */}
-              <button
+              <ClipboardCopy
                 className="participantFormButtons"
-                onClick={() => {
-                  navigator.clipboard.writeText(this.state.textToCopy);
-                }}
-              >
-                Copy
-              </button>
+                copyText={`${pairs.a} is gifting to ${pairs.b}. Budget: ${pairsInfo.budget}. Gifts will be given on ${pairsInfo.deadline}`}
+              ></ClipboardCopy>
             </div>
           );
         })}

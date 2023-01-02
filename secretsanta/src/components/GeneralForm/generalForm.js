@@ -64,7 +64,8 @@ function GeneralForm({
         />
       </div>
 
-      <div>
+      <div className="listHeader">
+        <p>Add in your Santas!</p>
         <button
           className="participantFormButtons"
           onClick={(e) => addMemberClick(e)}
@@ -72,18 +73,20 @@ function GeneralForm({
           Add Person
         </button>
       </div>
-      <ol className="listContainer">
-        {Array.from(Array(count)).map((c, index) => {
-          return (
-            <ParticipantList
-              key={index}
-              name={`${index}`}
-              handleClick={handleDelete}
-              handleChange={handleChangeMembers}
-            ></ParticipantList>
-          );
-        })}
-      </ol>
+      <div className="listContainer">
+        <ol className="list">
+          {Array.from(Array(count)).map((c, index) => {
+            return (
+              <ParticipantList
+                key={index}
+                name={`${index}`}
+                handleClick={handleDelete}
+                handleChange={handleChangeMembers}
+              ></ParticipantList>
+            );
+          })}
+        </ol>
+      </div>
       <div className="generateButtonContainer">
         <button className="generateButton" onClick={(e) => handleClick(e)}>
           Generate random pairs!
