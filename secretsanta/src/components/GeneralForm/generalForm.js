@@ -65,6 +65,7 @@ function GeneralForm({
       </div>
 
       <div className="listHeader">
+        <p>Add in your Santas!</p>
         <button
           className="participantFormButtons"
           onClick={(e) => addMemberClick(e)}
