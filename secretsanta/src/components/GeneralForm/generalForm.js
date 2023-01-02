@@ -77,7 +77,7 @@ function GeneralForm({
           return (
             <ParticipantList
               key={c}
-              name={index}
+              name={`${index}`}
               handleClick={handleDelete}
               handleChange={handleChangeMembers}
             ></ParticipantList>
@@ -96,7 +96,7 @@ function GeneralForm({
 GeneralForm.propTypes = {
   handleChangeDetails: PropTypes.func,
   handleChangeMembers: PropTypes.func,
-  handleClick: PropTypes.function,
+  handleClick: PropTypes.func,
   inputDetails: PropTypes.object,
   listGenerated: PropTypes.bool,
 };

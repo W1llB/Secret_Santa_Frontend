@@ -1,9 +1,4 @@
-import {
-  fireEvent,
-  getByLabelText,
-  render,
-  screen,
-} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { unmountComponentAtNode } from "react-dom";
 import React from "react";
@@ -32,19 +27,11 @@ test("renders learn react link", () => {
 
 describe("Input form tests", () => {
   test("checks budget field only allows numbers", () => {
-    const user = userEvent.setup();
     render(<App />);
-    let budgetInput = getByLabelText("Budget");
+    let budgetInput = screen.getByLabelText("Budget (£):");
 
-    fireEvent;
+    userEvent.type(budgetInput, "10");
 
-    const input = {
-      0: "Bob",
-      1: "Steve",
-      2: "Karen",
-      3: "Pam",
-    };
-
-    expect(pairArrays).not.toEqual(secondArray);
+    expect(budgetInput).toHaveValue(10);
   });
 });
