@@ -26,12 +26,18 @@ test("renders learn react link", () => {
 });
 
 describe("Input form tests", () => {
-  test("checks budget field only allows numbers", () => {
+  test("checks Budget field only allows numbers", () => {
     render(<App />);
     let budgetInput = screen.getByLabelText("Budget (£):");
 
-    userEvent.type(budgetInput, "10");
+    userEvent.type(budgetInput, "abc");
+    expect(budgetInput).toHaveValue(null);
+  });
+  test("checks date field only accepts dates", () => {
+    render(<App />);
+    let dateInput = screen.getByLabelText("Deadline:");
 
-    expect(budgetInput).toHaveValue(10);
+    userEvent.type(dateInput, "abc");
+    expect(dateInput).toHaveValue("");
   });
 });
