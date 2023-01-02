@@ -38,9 +38,10 @@ body {
 .formContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-right: 10px;
+  margin-left: 10px;
   padding: 20px;
   /* background-color: var(--primary-colour);
     border-radius: 5%; */
@@ -62,22 +63,27 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex: 1 1 0px;
+  font-size: 1rem;
   padding: 10px;
   margin: 10px;
 }
 
-.particpantListItem {
+.listContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 10px;
-  margin: 10px;
+  align-items: center;
+  justify-content: center;
+
+
 }
 
 .listHeader {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
+  margin: 10px;
 }
 
 .cardComponent {
@@ -96,6 +102,8 @@ body {
   align-items: center;
   justify-content: center;
   flex: 1;
+  padding: 10px;
+  margin: 10px;
 }
 .generateButton {
   color: rgb(0, 0, 0);
