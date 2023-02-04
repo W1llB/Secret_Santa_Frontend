@@ -25,12 +25,12 @@ export default function DetailsForm({
       <h3>Add Gift Exchange details</h3>
       <form className="formContainer" onSubmit={handleSubmit}>
         <div className="inputFieldContainer">
-          <label htmlFor="budget">Set your budget (£): </label>
+          <label htmlFor="budget">Set your budget: </label>
           <input
             type="number"
             id="budget"
             name="budget"
-            defaultValue="£"
+            placeholder="£"
             onChange={handleChange}
           />
         </div>
@@ -50,7 +50,8 @@ export default function DetailsForm({
             type="textarea"
             id="message"
             name="message"
-            defaultValue="Merry Christmas!"
+            placeholder="Merry Christmas!"
+            required="required"
             onChange={handleChange}
           />
         </div>

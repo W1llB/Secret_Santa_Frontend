@@ -9,9 +9,9 @@ import ParticipantNameForm from "../ParticipantNameForm/ParticipantNameForm";
 import LandingCard from "../LandingCard/LandingCard";
 import DetailsForm from "../DetailsForm/DetailsForm";
 import CommsCard from "../CommsCard/CommsCard";
+import EmailForm from "../EmailForm/EmailForm";
 
 function App() {
-  // Groupname State
   const [detailsForm, setDetailsForm] = useState({});
   const [inputMembers, setInputMembers] = useState({});
 
@@ -24,14 +24,6 @@ function App() {
   // //custom hook for random pairs
   // const [pairArrays, pairRandomiser] = useRandomiser([], inputMembers);
 
-  // // Handle Change function>
-  // function handleChangeDetails(e) {
-  //   setInputDetails({
-  //     ...inputDetails,
-  //     [e.target.name]: e.target.value,
-  //   });
-  //   console.log(inputDetails);
-  // }
   console.log(detailsForm);
   function toggleShowParticipantForm() {
     setShowParticipantForm(!showParticipantForm);
@@ -90,6 +82,7 @@ function App() {
         {showCommsCard && (
           <CommsCard toggleShowCommsCard={toggleShowCommsCard} />
         )}
+        <EmailForm inputMembers={inputMembers} />
       </div>
     </div>
   );

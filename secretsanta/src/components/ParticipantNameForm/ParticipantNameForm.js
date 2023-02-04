@@ -42,9 +42,10 @@ export default function ParticipantNameForm({
             return (
               <ParticipantList
                 key={index}
-                name={`${index} Name Input`}
+                name={`${index}NameInput`}
                 handleClick={handleDelete}
                 handleChange={handleChangeMembers}
+                index={index}
               ></ParticipantList>
             );
           })}
