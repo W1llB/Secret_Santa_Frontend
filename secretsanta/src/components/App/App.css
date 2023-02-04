@@ -1,10 +1,10 @@
 * {
-  --primary-colour: #146b3a;
-  --xmas-red: #bb2528;
+  /* --primary-colour: #146b3a;
+  --xmas-red: #bb2528; */
 }
 
 body {
-  background-color: var(--xmas-red);
+  /* background-color: var(--xmas-red); */
 }
 
 .App {
@@ -15,7 +15,7 @@ body {
 }
 
 .header {
-  color: white;
+  /* color: white; */
   background-color: var(--primary-colour);
   width: 100%;
   margin-bottom: 30px;

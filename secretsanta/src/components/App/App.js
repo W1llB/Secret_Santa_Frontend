@@ -1,73 +1,113 @@
-import { useEffect, useState } from "react";
-import useRandomiser from "../../hooks/useRandomiser/useRandomiser";
-import { PairsContext } from "../../Contexts/pairs-context";
-import React from "react";
+import React, { useState } from "react";
+// import useRandomiser from "../../hooks/useRandomiser/useRandomiser";
+// import { PairsContext } from "../../Contexts/pairs-context";
 import "../App/App.css";
 import Header from "../Header/header.js";
-import GeneralForm from "../GeneralForm/generalForm";
-import MembersList from "../MembersList";
+// import GeneralForm from "../GeneralForm/generalForm";
+// import MembersList from "../MembersList";
+import ParticipantNameForm from "../ParticipantNameForm/ParticipantNameForm";
+import LandingCard from "../LandingCard/LandingCard";
+import DetailsForm from "../DetailsForm/DetailsForm";
+import CommsCard from "../CommsCard/CommsCard";
 
 function App() {
   // Groupname State
-  const [inputDetails, setInputDetails] = useState({
-    gname: "",
-    budget: "",
-    deadline: "",
-  });
-  const [inputMembers, setInputMembers] = useState(null);
-  const [finalGroup, setFinalGroup] = useState(null);
-  const [listGenerated, setListGenerated] = useState(false);
+  const [detailsForm, setDetailsForm] = useState({});
+  const [inputMembers, setInputMembers] = useState({});
 
-  //custom hook for random pairs
-  const [pairArrays, pairRandomiser] = useRandomiser([], inputMembers);
+  const [showLandingCard, setShowLandingCard] = useState(true);
+  const [showParticipantForm, setShowParticipantForm] = useState(false);
+  const [showDetailsForm, setShowDetailsForm] = useState(false);
+  const [showCommsCard, setShowCommsCard] = useState(false);
+  // const [finalGroup, setFinalGroup] = useState(null);
+  // const [listGenerated, setListGenerated] = useState(false);
+  // //custom hook for random pairs
+  // const [pairArrays, pairRandomiser] = useRandomiser([], inputMembers);
 
-  // Handle Change function>
-  function handleChangeDetails(e) {
-    setInputDetails({
-      ...inputDetails,
-      [e.target.name]: e.target.value,
-    });
-    console.log(inputDetails);
+  // // Handle Change function>
+  // function handleChangeDetails(e) {
+  //   setInputDetails({
+  //     ...inputDetails,
+  //     [e.target.name]: e.target.value,
+  //   });
+  //   console.log(inputDetails);
+  // }
+  console.log(detailsForm);
+  function toggleShowParticipantForm() {
+    setShowParticipantForm(!showParticipantForm);
   }
 
-  function handleChangeMembers(e) {
-    setInputMembers({
-      ...inputMembers,
-      [e.target.name]: e.target.value,
-    });
-    console.log(inputMembers);
+  function toggleShowLandingCard() {
+    setShowLandingCard(!showLandingCard);
   }
 
-  useEffect(() => {
-    pairRandomiser(inputMembers);
-  }, [inputMembers]);
-
-  function generateButtonClick(e) {
-    e.preventDefault();
-    setFinalGroup([inputDetails, pairArrays]);
-    setInputDetails({ gname: "", budget: "", deadline: "" });
-    setListGenerated(true);
-    console.log(`${finalGroup}finalgroup`);
+  function toggleShowDetailsForm() {
+    setShowDetailsForm(!showDetailsForm);
   }
+
+  function toggleShowCommsCard() {
+    setShowCommsCard(!showCommsCard);
+  }
+  // useEffect(() => {
+  //   pairRandomiser(inputMembers);
+  // }, [inputMembers]);
+
+  // function generateButtonClick(e) {
+  //   e.preventDefault();
+  //   setFinalGroup([inputDetails, pairArrays]);
+  //   setInputDetails({ gname: "", budget: "", deadline: "" });
+  //   setListGenerated(true);
+  //   console.log(`${finalGroup}finalgroup`);
+  // }
 
   return (
     <div className="App">
       <Header></Header>
 
-      <div className="divsContainer">
-        <GeneralForm
-          handleChangeDetails={handleChangeDetails}
-          handleChangeMembers={handleChangeMembers}
-          handleClick={generateButtonClick}
-          inputDetails={inputDetails}
-          listGenerated={listGenerated}
-        ></GeneralForm>
-        <PairsContext.Provider value={finalGroup}>
-          <MembersList></MembersList>
-        </PairsContext.Provider>
+      <div className="form-main-card">
+        {showLandingCard && (
+          <LandingCard
+            toggleShowParticipantForm={toggleShowParticipantForm}
+            toggleShowLandingCard={toggleShowLandingCard}
+          />
+        )}
+        {showParticipantForm && (
+          <ParticipantNameForm
+            inputMembers={inputMembers}
+            setInputMembers={setInputMembers}
+            toggleShowParticipantForm={toggleShowParticipantForm}
+            toggleShowDetailsForm={toggleShowDetailsForm}
+          />
+        )}
+        {showDetailsForm && (
+          <DetailsForm
+            detailsForm={detailsForm}
+            setDetailsForm={setDetailsForm}
+            toggleShowDetailsForm={toggleShowDetailsForm}
+            toggleShowCommsCard={toggleShowCommsCard}
+          />
+        )}
+        {showCommsCard && (
+          <CommsCard toggleShowCommsCard={toggleShowCommsCard} />
+        )}
       </div>
     </div>
   );
 }
 
 export default App;
+
+{
+  /* <GeneralForm
+          handleChangeDetails={handleChangeDetails}
+          handleChangeMembers={handleChangeMembers}
+          handleClick={generateButtonClick}
+          inputDetails={inputDetails}
+          listGenerated={listGenerated}
+        ></GeneralForm> */
+}
+{
+  /* <PairsContext.Provider value={finalGroup}>
+          <MembersList></MembersList>
+        </PairsContext.Provider> */
+}
