@@ -1,13 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function LandingCard({
-  toggleShowParticipantForm,
-  toggleShowLandingCard,
-}) {
+export default function LandingCard({ incrementFormStage }) {
   function handleClick() {
-    toggleShowParticipantForm();
-    toggleShowLandingCard();
+    incrementFormStage();
   }
   return (
     <div>
@@ -26,4 +22,5 @@ export default function LandingCard({
 LandingCard.propTypes = {
   toggleShowParticipantForm: PropTypes.func,
   toggleShowLandingCard: PropTypes.func,
+  incrementFormStage: PropTypes.func,
 };

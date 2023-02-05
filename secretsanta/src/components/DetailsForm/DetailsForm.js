@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 export default function DetailsForm({
   detailsForm,
   setDetailsForm,
-  toggleShowDetailsForm,
-  toggleShowCommsCard,
+  incrementFormStage,
 }) {
   function handleChange(e) {
     setDetailsForm({
@@ -17,8 +16,7 @@ export default function DetailsForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    toggleShowDetailsForm();
-    toggleShowCommsCard();
+    incrementFormStage();
   }
   return (
     <div>
@@ -64,6 +62,5 @@ export default function DetailsForm({
 DetailsForm.propTypes = {
   detailsForm: PropTypes.object,
   setDetailsForm: PropTypes.func,
-  toggleShowDetailsForm: PropTypes.func,
-  toggleShowCommsCard: PropTypes.func,
+  incrementFormStage: PropTypes.func,
 };

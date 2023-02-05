@@ -6,15 +6,9 @@ import PropTypes from "prop-types";
 export default function ParticipantNameForm({
   inputMembers,
   setInputMembers,
-  toggleShowParticipantForm,
-  toggleShowDetailsForm,
+  incrementFormStage,
 }) {
   const [count, setCount] = useState(4);
-
-  function handleDelete(e) {
-    e.preventDefault();
-    setCount(count - 1);
-  }
 
   function addMemberClick(e) {
     e.preventDefault();
@@ -22,8 +16,7 @@ export default function ParticipantNameForm({
   }
 
   function handleSubmitNames() {
-    toggleShowParticipantForm();
-    toggleShowDetailsForm();
+    incrementFormStage();
   }
 
   function handleChangeMembers(e) {
@@ -42,8 +35,7 @@ export default function ParticipantNameForm({
             return (
               <ParticipantList
                 key={index}
-                name={`${index}NameInput`}
-                handleClick={handleDelete}
+                name={`${index}`}
                 handleChange={handleChangeMembers}
                 index={index}
               ></ParticipantList>
@@ -67,4 +59,5 @@ ParticipantNameForm.propTypes = {
   setInputMembers: PropTypes.func,
   toggleShowParticipantForm: PropTypes.func,
   toggleShowDetailsForm: PropTypes.func,
+  incrementFormStage: PropTypes.func,
 };

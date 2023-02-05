@@ -2,7 +2,7 @@ import React from "react";
 import "../App/App.css";
 import PropTypes from "prop-types";
 
-function ParticipantList({ name, handleClick, handleChange, index }) {
+function ParticipantList({ name, handleChange, index }) {
   return (
     <li className="participantListItem">
       <input
@@ -12,9 +12,9 @@ function ParticipantList({ name, handleClick, handleChange, index }) {
         onChange={handleChange}
         placeholder={`Secret Santa ${index + 1}`}
       />
-      <button className="participantFormButtons" onClick={handleClick}>
+      {/* <button className="participantFormButtons" onClick={handleClick}>
         Delete
-      </button>
+      </button> */}
     </li>
   );
 }
