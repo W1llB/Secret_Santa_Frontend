@@ -9,20 +9,25 @@ import EmailFormInput from "../EmailFormInput/EmailFormInput";
 
 */
 
-export default function EmailForm({ inputMembers }) {
+export default function EmailForm({ inputMembers, incrementFormStage }) {
   const inputMemberArray = Object.values(inputMembers);
   console.log(inputMemberArray);
+  function handleSubmit(e) {
+    e.preventDefault();
+    incrementFormStage();
+  }
+
   return (
     <div>
       <h3>
         Enter the emails of your Secret Santas. Press Send emails to finish the
         process and send your participants an email wit their person.
       </h3>
-      <form>
+      <form onSubmit={handleSubmit}>
         {inputMemberArray.map((name, index) => {
           return <EmailFormInput key={index} index={index} name={name} />;
         })}
-        <button>Send emails</button>
+        <button type="submit">Send emails</button>
       </form>
     </div>
   );
@@ -30,4 +35,5 @@ export default function EmailForm({ inputMembers }) {
 
 EmailForm.propTypes = {
   inputMembers: PropTypes.object,
+  incrementFormStage: PropTypes.func,
 };

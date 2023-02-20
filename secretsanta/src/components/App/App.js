@@ -6,14 +6,13 @@ import Header from "../Header/header.js";
 import ParticipantNameForm from "../ParticipantNameForm/ParticipantNameForm";
 import LandingCard from "../LandingCard/LandingCard";
 import DetailsForm from "../DetailsForm/DetailsForm";
-// import CommsCard from "../CommsCard/CommsCard";
 import EmailForm from "../EmailForm/EmailForm";
-// import PairsCard from "../PairsCard/PairsCard";
+import SuccessCard from "../SucessCard/SuccessCard";
+import NavBar from "../NavBar/NavBar";
 
 function App() {
   const [detailsForm, setDetailsForm] = useState({});
   const [inputMembers, setInputMembers] = useState({});
-  // const [inputMembersEmails, setInputMembersEmails] = useState({})
 
   // const [showEmailForm, setShowEmailForm] = useState(false);
   // const [showPairsCard, setShowPairsCard] = useState(false);
@@ -31,12 +30,19 @@ function App() {
     landingCard: 0,
     participantNameForm: 1,
     detailsForm: 2,
-    commsCard: 3,
-    emailForm: 4,
-    final: 5,
+    emailForm: 3,
+    final: 4,
   };
   function incrementFormStage() {
-    setFormStage(formStage + 1);
+    if (formStage >= 0 && formStage < 4) {
+      setFormStage(formStage + 1);
+    }
+  }
+
+  function decrementFormStage() {
+    if (formStage > 0 && formStage < 5) {
+      setFormStage(formStage - 1);
+    }
   }
 
   // function toggleShowEmailForm() {
@@ -63,6 +69,11 @@ function App() {
       <Header></Header>
 
       <div className="form-main-card">
+        <NavBar
+          formStage={formStage}
+          decrementFormStage={decrementFormStage}
+          incrementFormStage={incrementFormStage}
+        />
         {formStage === formStages.landingCard && (
           <LandingCard incrementFormStage={incrementFormStage} />
         )}
@@ -80,18 +91,13 @@ function App() {
             incrementFormStage={incrementFormStage}
           />
         )}
-        {/* {formStage === formStages.commsCard && (
-          <CommsCard
-            incrementFormStage={incrementFormStage}
-            toggleShowEmailForm={toggleShowEmailForm}
-            toggleShowPairsCard={toggleShowPairsCard}
-          />
-        )} */}
         {formStage === formStages.emailForm && (
-          <EmailForm inputMembers={inputMembers} />
+          <EmailForm
+            inputMembers={inputMembers}
+            incrementFormStage={incrementFormStage}
+          />
         )}
-
-        {/* {showPairsCard && <PairsCard />} */}
+        {formStage === formStages.final && <SuccessCard />}
       </div>
     </div>
   );
