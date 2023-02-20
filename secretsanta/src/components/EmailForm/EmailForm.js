@@ -9,14 +9,26 @@ import EmailFormInput from "../EmailFormInput/EmailFormInput";
 
 */
 
-export default function EmailForm({ inputMembers, incrementFormStage }) {
+export default function EmailForm({
+  inputMembers,
+  incrementFormStage,
+  handleEmailSubmit,
+  setMemberEmails,
+  memberEmails,
+}) {
   const inputMemberArray = Object.values(inputMembers);
-  console.log(inputMemberArray);
   function handleSubmit(e) {
     e.preventDefault();
     incrementFormStage();
+    handleEmailSubmit();
   }
 
+  function handleEmailChange(e) {
+    setMemberEmails({
+      ...memberEmails,
+      [e.target.name]: e.target.value,
+    });
+  }
   return (
     <div>
       <h3>
@@ -25,7 +37,14 @@ export default function EmailForm({ inputMembers, incrementFormStage }) {
       </h3>
       <form onSubmit={handleSubmit}>
         {inputMemberArray.map((name, index) => {
-          return <EmailFormInput key={index} index={index} name={name} />;
+          return (
+            <EmailFormInput
+              key={index}
+              index={index}
+              name={name}
+              handleEmailChange={handleEmailChange}
+            />
+          );
         })}
         <button type="submit">Send emails</button>
       </form>
@@ -36,4 +55,7 @@ export default function EmailForm({ inputMembers, incrementFormStage }) {
 EmailForm.propTypes = {
   inputMembers: PropTypes.object,
   incrementFormStage: PropTypes.func,
+  handleEmailSubmit: PropTypes.func,
+  setMemberEmails: PropTypes.func,
+  memberEmails: PropTypes.object,
 };

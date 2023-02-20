@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function useRandomiser(initialValue) {
-  const [pairArrays, setPairArrays] = useState(initialValue);
-  function pairRandomiser(giftGiversObject) {
+function useRandomiser(giftGiversObject) {
+  const [pairArrays, setPairArrays] = useState(null);
+  useEffect(() => {
     try {
       let giftGivers = Object.values(giftGiversObject);
       var a = giftGivers.slice(0);
@@ -29,8 +29,9 @@ function useRandomiser(initialValue) {
     } catch (error) {
       console.log(error);
     }
-  }
-  return [pairArrays, pairRandomiser];
+  }, [giftGiversObject]);
+
+  return [pairArrays];
 }
 
 function extractRandomElement(array) {

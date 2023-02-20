@@ -11,7 +11,7 @@ export default function NavBar({
   return (
     <div>
       {formStage > 0 && <img src={backChevron} onClick={decrementFormStage} />}
-      {formStage < 4 && (
+      {formStage < 3 && (
         <img src={forwardChevron} onClick={incrementFormStage} />
       )}
     </div>

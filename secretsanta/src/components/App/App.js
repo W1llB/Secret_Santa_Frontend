@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// import useRandomiser from "../../hooks/useRandomiser/useRandomiser";
-// import { PairsContext } from "../../Contexts/pairs-context";
+import useRandomiser from "../../hooks/useRandomiser/useRandomiser";
 import "../App/App.css";
 import Header from "../Header/header.js";
 import ParticipantNameForm from "../ParticipantNameForm/ParticipantNameForm";
@@ -13,18 +12,12 @@ import NavBar from "../NavBar/NavBar";
 function App() {
   const [detailsForm, setDetailsForm] = useState({});
   const [inputMembers, setInputMembers] = useState({});
+  const [memberEmails, setMemberEmails] = useState({});
 
-  // const [showEmailForm, setShowEmailForm] = useState(false);
-  // const [showPairsCard, setShowPairsCard] = useState(false);
   const [formStage, setFormStage] = useState(0);
-  // const [finalGroup, setFinalGroup] = useState(null);
-  // const [listGenerated, setListGenerated] = useState(false);
+  const [finalGroup, setFinalGroup] = useState(null);
   // //custom hook for random pairs
-  // const [pairArrays, pairRandomiser] = useRandomiser([], inputMembers);
-
-  console.log(detailsForm);
-  console.log(inputMembers);
-  console.log(formStage);
+  const [pairsArrays] = useRandomiser(finalGroup);
 
   const formStages = {
     landingCard: 0,
@@ -44,25 +37,24 @@ function App() {
       setFormStage(formStage - 1);
     }
   }
+  function handleEmailSubmit() {
+    setFinalGroup(inputMembers);
+    sendEmail();
+  }
 
-  // function toggleShowEmailForm() {
-  //   setShowEmailForm(!showEmailForm);
-  // }
-
-  // function toggleShowPairsCard() {
-  //   setShowPairsCard(!showPairsCard);
-  // }
-  // useEffect(() => {
-  //   pairRandomiser(inputMembers);
-  // }, [inputMembers]);
-
-  // function generateButtonClick(e) {
-  //   e.preventDefault();
-  //   setFinalGroup([inputDetails, pairArrays]);
-  //   setInputDetails({ gname: "", budget: "", deadline: "" });
-  //   setListGenerated(true);
-  //   console.log(`${finalGroup}finalgroup`);
-  // }
+  function sendEmail() {
+    console.log(pairsArrays, "pairs array");
+    console.log(detailsForm, "details");
+    console.log(memberEmails, "emails");
+    console.log(
+      pairsArrays[0].a +
+        "is giving to" +
+        pairsArrays[0].b +
+        "." +
+        " their email is: " +
+        memberEmails[pairsArrays[0].a]
+    );
+  }
 
   return (
     <div className="App">
@@ -95,6 +87,9 @@ function App() {
           <EmailForm
             inputMembers={inputMembers}
             incrementFormStage={incrementFormStage}
+            handleEmailSubmit={handleEmailSubmit}
+            setMemberEmails={setMemberEmails}
+            memberEmails={memberEmails}
           />
         )}
         {formStage === formStages.final && <SuccessCard />}
@@ -104,18 +99,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <GeneralForm
-          handleChangeDetails={handleChangeDetails}
-          handleChangeMembers={handleChangeMembers}
-          handleClick={generateButtonClick}
-          inputDetails={inputDetails}
-          listGenerated={listGenerated}
-        ></GeneralForm> */
-}
-{
-  /* <PairsContext.Provider value={finalGroup}>
-          <MembersList></MembersList>
-        </PairsContext.Provider> */
-}
