@@ -4,8 +4,9 @@ import ParticipantList from "../ParticipantList/participantList";
 import PropTypes from "prop-types";
 
 export default function ParticipantNameForm({
-  inputMembers,
+  setFinalGroup,
   setInputMembers,
+  inputMembers,
   incrementFormStage,
 }) {
   const [count, setCount] = useState(4);
@@ -16,6 +17,7 @@ export default function ParticipantNameForm({
   }
 
   function handleSubmitNames() {
+    setFinalGroup(inputMembers);
     incrementFormStage();
   }
 
@@ -24,7 +26,6 @@ export default function ParticipantNameForm({
       ...inputMembers,
       [e.target.name]: e.target.value,
     });
-    console.log(inputMembers);
   }
   return (
     <div>
@@ -57,7 +58,6 @@ export default function ParticipantNameForm({
 ParticipantNameForm.propTypes = {
   inputMembers: PropTypes.object,
   setInputMembers: PropTypes.func,
-  toggleShowParticipantForm: PropTypes.func,
-  toggleShowDetailsForm: PropTypes.func,
+  setFinalGroup: PropTypes.func,
   incrementFormStage: PropTypes.func,
 };

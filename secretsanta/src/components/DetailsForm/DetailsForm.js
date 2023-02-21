@@ -11,7 +11,6 @@ export default function DetailsForm({
       ...detailsForm,
       [e.target.name]: e.target.value,
     });
-    console.log(detailsForm);
   }
 
   function handleSubmit(e) {
@@ -23,12 +22,23 @@ export default function DetailsForm({
       <h3>Add Gift Exchange details</h3>
       <form className="formContainer" onSubmit={handleSubmit}>
         <div className="inputFieldContainer">
+          <label htmlFor="budget">Enter the organiser name: </label>
+          <input
+            id="organiserName"
+            name="organiserName"
+            placeholder="Ebeneezer Scrooge"
+            required="required"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="inputFieldContainer">
           <label htmlFor="budget">Set your budget: </label>
           <input
             type="number"
             id="budget"
             name="budget"
             placeholder="£"
+            required="required"
             onChange={handleChange}
           />
         </div>
@@ -39,6 +49,7 @@ export default function DetailsForm({
             type="date"
             id="deadline"
             name="deadline"
+            required="required"
             onChange={handleChange}
           />
         </div>

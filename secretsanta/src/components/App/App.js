@@ -8,11 +8,12 @@ import DetailsForm from "../DetailsForm/DetailsForm";
 import EmailForm from "../EmailForm/EmailForm";
 import SuccessCard from "../SucessCard/SuccessCard";
 import NavBar from "../NavBar/NavBar";
+import sendEmail from "../../modules/sendEmail/sendEmail.mjs";
 
 function App() {
   const [detailsForm, setDetailsForm] = useState({});
-  const [inputMembers, setInputMembers] = useState({});
   const [memberEmails, setMemberEmails] = useState({});
+  const [inputMembers, setInputMembers] = useState({});
 
   const [formStage, setFormStage] = useState(0);
   const [finalGroup, setFinalGroup] = useState(null);
@@ -38,22 +39,11 @@ function App() {
     }
   }
   function handleEmailSubmit() {
-    setFinalGroup(inputMembers);
-    sendEmail();
-  }
-
-  function sendEmail() {
-    console.log(pairsArrays, "pairs array");
-    console.log(detailsForm, "details");
-    console.log(memberEmails, "emails");
-    console.log(
-      pairsArrays[0].a +
-        "is giving to" +
-        pairsArrays[0].b +
-        "." +
-        " their email is: " +
-        memberEmails[pairsArrays[0].a]
-    );
+    if (pairsArrays) {
+      for (const pair of pairsArrays) {
+        sendEmail(pair, memberEmails[pair.a], detailsForm);
+      }
+    }
   }
 
   return (
@@ -73,6 +63,7 @@ function App() {
           <ParticipantNameForm
             inputMembers={inputMembers}
             setInputMembers={setInputMembers}
+            setFinalGroup={setFinalGroup}
             incrementFormStage={incrementFormStage}
           />
         )}
