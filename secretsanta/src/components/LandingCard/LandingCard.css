@@ -1,0 +1,13 @@
+.sub-card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.landing-description{
+    text-align: center;
+    width: 60%;
+    font-weight: 500;
+  }

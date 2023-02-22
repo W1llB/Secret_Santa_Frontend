@@ -1,10 +1,12 @@
 * {
-  /* --primary-colour: #146b3a;
-  --xmas-red: #bb2528; */
+ --primary-colour: #146b3a;
+ --xmas-red: #bb2528;
 }
 
 body {
   /* background-color: var(--xmas-red); */
+  background-image: url('../../icons/presentbackground.png');
+  background-repeat: repeat;
 }
 
 .App {
@@ -14,41 +16,55 @@ body {
   align-items: center;
 }
 
-.header {
-  /* color: white; */
-  background-color: var(--primary-colour);
-  width: 100%;
-  margin-bottom: 30px;
-  padding: 25px;
-}
 
-.divsContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: space-evenly;
-  color: white;
-  font: bold;
-  width: auto;
-  height: auto;
-  background-color: var(--primary-colour);
-  border-radius: 2.5%;
-}
-
-.formContainer {
+.form-main-card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 30%;
-  margin-right: 10px;
-  margin-left: 10px;
-  padding: 20px;
-  /* background-color: var(--primary-colour);
-    border-radius: 5%; */
+  justify-content: flex-start;
+  width: 50%;
+  /* color: white; */
+  height: 80vmin;
+  background-color: #ffffffe3;
+  /* padding: 20px; */
+  margin-top: 10vmin;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;}
+
+
+button{
+  background-color: #FFFFFF;
+  border: 0;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-.listTitle {
+button:hover {
+  background-color: rgb(249,250,251);
+}
+
+button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  box-shadow: none;
+}
+
+/* .listTitle {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,9 +73,9 @@ body {
   padding: 20px;
   width: 30%;
 
-  /* background-color: var(--primary-colour);
-    border-radius: 5%; */
-}
+   background-color: var(--primary-colour);
+    border-radius: 5%;
+} */
 
 .participantListItem {
   margin-bottom: 10px;
@@ -71,8 +87,9 @@ body {
   justify-content: center;
   align-items: center;
   flex: 1 1 0px;
+  width: 100%;
   font-size: 1rem;
-  /* padding: 10px; */
+  padding: 10px;
   margin: 10px;
 }
 
@@ -81,6 +98,11 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 /* label {

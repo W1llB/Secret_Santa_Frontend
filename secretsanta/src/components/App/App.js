@@ -48,9 +48,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header></Header>
-
       <div className="form-main-card">
+        <Header></Header>
         <NavBar
           formStage={formStage}
           decrementFormStage={decrementFormStage}
