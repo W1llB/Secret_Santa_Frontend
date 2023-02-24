@@ -31,20 +31,18 @@ export default function EmailForm({
   }
   return (
     <div>
-      <h3>
-        Enter the emails of your Secret Santas. Press Send emails to finish the
-        process and send your participants an email wit their person.
-      </h3>
+      <h3>Enter the emails of your Secret Santas and send out your pairs.</h3>
       <form onSubmit={handleSubmit}>
         {inputMemberArray.map((name, index) => {
-          return (
-            <EmailFormInput
-              key={index}
-              index={index}
-              name={name}
-              handleEmailChange={handleEmailChange}
-            />
-          );
+          if (name.length > 0)
+            return (
+              <EmailFormInput
+                key={index}
+                index={index}
+                name={name}
+                handleEmailChange={handleEmailChange}
+              />
+            );
         })}
         <button type="submit">Send emails</button>
       </form>

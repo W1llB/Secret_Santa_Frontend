@@ -18,7 +18,7 @@ export default function DetailsForm({
     incrementFormStage();
   }
   return (
-    <div>
+    <div className="sub-card-container">
       <h3>Add Gift Exchange details</h3>
       <form className="formContainer" onSubmit={handleSubmit}>
         <div className="inputFieldContainer">

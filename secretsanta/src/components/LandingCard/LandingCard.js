@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./LandingCard.css";
 
 export default function LandingCard({ incrementFormStage }) {
   function handleClick() {

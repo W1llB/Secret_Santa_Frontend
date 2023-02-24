@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ParticipantList from "../ParticipantList/participantList";
 import PropTypes from "prop-types";
 
@@ -10,15 +9,28 @@ export default function ParticipantNameForm({
   incrementFormStage,
 }) {
   const [count, setCount] = useState(4);
+  const [duplicateCheck, setDuplicateCheck] = useState(false);
 
+  function findDuplicateNames(inputMembersObject) {
+    const namesArray = Object.values(inputMembersObject);
+    let result = namesArray.some((element, index) => {
+      return namesArray.indexOf(element) !== index;
+    });
+    setDuplicateCheck(!result);
+  }
   function addMemberClick(e) {
     e.preventDefault();
     setCount(count + 1);
   }
+  useEffect(() => {
+    findDuplicateNames(inputMembers);
+  }, [inputMembers]);
 
   function handleSubmitNames() {
-    setFinalGroup(inputMembers);
-    incrementFormStage();
+    if (duplicateCheck) {
+      setFinalGroup(inputMembers);
+      incrementFormStage();
+    }
   }
 
   function handleChangeMembers(e) {
@@ -27,8 +39,9 @@ export default function ParticipantNameForm({
       [e.target.name]: e.target.value,
     });
   }
+  console.log(inputMembers);
   return (
-    <div>
+    <div className="stage-container">
       <h3>Please enter the names of your Secret Santas.</h3>
       <div className="listContainer">
         <ol className="list">
@@ -36,14 +49,16 @@ export default function ParticipantNameForm({
             return (
               <ParticipantList
                 key={index}
-                name={`${index}`}
+                name={index}
                 handleChange={handleChangeMembers}
                 index={index}
+                inputMembers={inputMembers}
               ></ParticipantList>
             );
           })}
         </ol>
       </div>
+
       <button
         className="participantFormButtons"
         onClick={(e) => addMemberClick(e)}
@@ -51,6 +66,7 @@ export default function ParticipantNameForm({
         Add Person
       </button>
       <button onClick={handleSubmitNames}>Submit Names</button>
+      {!duplicateCheck && <p>Names must be unique.</p>}
     </div>
   );
 }
