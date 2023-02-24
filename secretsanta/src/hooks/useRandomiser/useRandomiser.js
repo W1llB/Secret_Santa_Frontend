@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { removeEmptyStrings } from "../../utils/utils";
 
 function useRandomiser(giftGiversObject) {
   const [pairArrays, setPairArrays] = useState(null);
@@ -35,16 +36,6 @@ function useRandomiser(giftGiversObject) {
 
 function extractRandomElement(array) {
   return array.splice(Math.floor(Math.random() * array.length), 1)[0];
-}
-
-function removeEmptyStrings(array) {
-  let cleanedArray = [];
-  for (const string of array) {
-    if (string.length > 0) {
-      cleanedArray.push(string);
-    }
-  }
-  return cleanedArray;
 }
 
 export default useRandomiser;

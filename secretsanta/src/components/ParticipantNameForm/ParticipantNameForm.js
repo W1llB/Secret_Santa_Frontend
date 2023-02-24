@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ParticipantList from "../ParticipantList/participantList";
 import PropTypes from "prop-types";
+import { findDuplicateNames } from "../../utils/utils";
+import { checkLengthGreaterThan } from "../../utils/utils";
 
 export default function ParticipantNameForm({
   setFinalGroup,
@@ -10,24 +12,19 @@ export default function ParticipantNameForm({
 }) {
   const [count, setCount] = useState(4);
   const [duplicateCheck, setDuplicateCheck] = useState(false);
+  const [checkThree, setCheckThree] = useState(false);
 
-  function findDuplicateNames(inputMembersObject) {
-    const namesArray = Object.values(inputMembersObject);
-    let result = namesArray.some((element, index) => {
-      return namesArray.indexOf(element) !== index;
-    });
-    setDuplicateCheck(!result);
-  }
   function addMemberClick(e) {
     e.preventDefault();
     setCount(count + 1);
   }
   useEffect(() => {
-    findDuplicateNames(inputMembers);
+    findDuplicateNames(inputMembers, setDuplicateCheck);
+    checkLengthGreaterThan(2, inputMembers, setCheckThree);
   }, [inputMembers]);
 
   function handleSubmitNames() {
-    if (duplicateCheck) {
+    if (duplicateCheck && checkThree) {
       setFinalGroup(inputMembers);
       incrementFormStage();
     }
@@ -66,7 +63,14 @@ export default function ParticipantNameForm({
         Add Person
       </button>
       <button onClick={handleSubmitNames}>Submit Names</button>
-      {!duplicateCheck && <p>Names must be unique.</p>}
+      <div className="error-container">
+        {!duplicateCheck && (
+          <p className="error-message">Names must be unique.</p>
+        )}
+        {!checkThree && (
+          <p className="error-message">3 names or more required.</p>
+        )}
+      </div>
     </div>
   );
 }
