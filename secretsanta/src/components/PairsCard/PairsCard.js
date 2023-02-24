@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { PairsContext } from "../../Contexts/pairs-context";
 import ClipboardCopy from "../ClipboardCopy";
 
-function MembersList() {
+export default function PairsCard() {
   const pairs = useContext(PairsContext);
   if (pairs === null) {
     return (
@@ -19,8 +19,11 @@ function MembersList() {
 
   return (
     <div className="listTitle">
-      <h3 className="listHeader"> Group&apos;s Secret Santa</h3>
-      <br />
+      <h3 className="listHeader">
+        {" "}
+        Wahey! Your Secret Santa pairs have been generated. <br /> Use the copy
+        buttons to quickly share this with your Santas.{" "}
+      </h3>
       <div>
         {pairsObjectArray.map((pairs) => {
           return (
@@ -28,15 +31,15 @@ function MembersList() {
               className="cardComponent"
               key={pairsObjectArray.indexOf(pairs)}
             >
+              <h4>{pairs.a}</h4>
               <p>
-                <strong>{pairs.a}</strong> is gifting to{" "}
-                <strong>{pairs.b}</strong>. <strong>Budget:</strong> £
-                {pairsInfo.budget}. Gifts will be given on{" "}
-                <strong>{pairsInfo.deadline}</strong>!
+                {" "}
+                is gifting to <p />
+                <h4>{pairs.b}</h4>
               </p>
               <ClipboardCopy
                 className="participantFormButtons"
-                copyText={`${pairs.a} is gifting to ${pairs.b}. Budget: ${pairsInfo.budget}. Gifts will be given on ${pairsInfo.deadline}`}
+                copyText={`🎅You are gifting to ${pairs.b}. Budget: ${pairsInfo.budget}. Gifts will be given on ${pairsInfo.deadline}🎅`}
               ></ClipboardCopy>
             </div>
           );
@@ -45,5 +48,3 @@ function MembersList() {
     </div>
   );
 }
-
-export default MembersList;

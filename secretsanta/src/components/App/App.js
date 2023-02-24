@@ -1,70 +1,96 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useRandomiser from "../../hooks/useRandomiser/useRandomiser";
-import { PairsContext } from "../../Contexts/pairs-context";
-import React from "react";
 import "../App/App.css";
 import Header from "../Header/header.js";
-import GeneralForm from "../GeneralForm/generalForm";
-import MembersList from "../MembersList";
+import ParticipantNameForm from "../ParticipantNameForm/ParticipantNameForm";
+import LandingCard from "../LandingCard/LandingCard";
+import DetailsForm from "../DetailsForm/DetailsForm";
+import EmailForm from "../EmailForm/EmailForm";
+import SuccessCard from "../SucessCard/SuccessCard";
+import NavBar from "../NavBar/NavBar";
+import sendEmail from "../../modules/sendEmail/sendEmail.mjs";
 
 function App() {
-  // Groupname State
-  const [inputDetails, setInputDetails] = useState({
-    gname: "",
-    budget: "",
-    deadline: "",
-  });
-  const [inputMembers, setInputMembers] = useState(null);
+  const [detailsForm, setDetailsForm] = useState({});
+  const [memberEmails, setMemberEmails] = useState({});
+  const [inputMembers, setInputMembers] = useState({});
+
+  const show = false;
+
+  const [formStage, setFormStage] = useState(0);
   const [finalGroup, setFinalGroup] = useState(null);
-  const [listGenerated, setListGenerated] = useState(false);
+  // //custom hook for random pairs
+  const [pairsArrays] = useRandomiser(finalGroup);
 
-  //custom hook for random pairs
-  const [pairArrays, pairRandomiser] = useRandomiser([], inputMembers);
-
-  // Handle Change function>
-  function handleChangeDetails(e) {
-    setInputDetails({
-      ...inputDetails,
-      [e.target.name]: e.target.value,
-    });
-    console.log(inputDetails);
+  const formStages = {
+    landingCard: 0,
+    participantNameForm: 1,
+    detailsForm: 2,
+    emailForm: 3,
+    final: 4,
+  };
+  function incrementFormStage() {
+    if (formStage >= 0 && formStage < 4) {
+      setFormStage(formStage + 1);
+    }
   }
 
-  function handleChangeMembers(e) {
-    setInputMembers({
-      ...inputMembers,
-      [e.target.name]: e.target.value,
-    });
-    console.log(inputMembers);
+  function decrementFormStage() {
+    if (formStage > 0 && formStage < 5) {
+      setFormStage(formStage - 1);
+    }
   }
-
-  useEffect(() => {
-    pairRandomiser(inputMembers);
-  }, [inputMembers]);
-
-  function generateButtonClick(e) {
-    e.preventDefault();
-    setFinalGroup([inputDetails, pairArrays]);
-    setInputDetails({ gname: "", budget: "", deadline: "" });
-    setListGenerated(true);
-    console.log(`${finalGroup}finalgroup`);
+  function handleEmailSubmit() {
+    if (pairsArrays) {
+      for (const pair of pairsArrays) {
+        sendEmail(pair, memberEmails[pair.a], detailsForm);
+      }
+    }
   }
 
   return (
     <div className="App">
-      <Header></Header>
-
-      <div className="divsContainer">
-        <GeneralForm
-          handleChangeDetails={handleChangeDetails}
-          handleChangeMembers={handleChangeMembers}
-          handleClick={generateButtonClick}
-          inputDetails={inputDetails}
-          listGenerated={listGenerated}
-        ></GeneralForm>
-        <PairsContext.Provider value={finalGroup}>
-          <MembersList></MembersList>
-        </PairsContext.Provider>
+      <div className="form-main-card">
+        <Header />
+        <div className="input-card">
+          {formStage === formStages.landingCard && (
+            <LandingCard incrementFormStage={incrementFormStage} />
+          )}
+          {formStage === formStages.participantNameForm && (
+            <ParticipantNameForm
+              inputMembers={inputMembers}
+              setInputMembers={setInputMembers}
+              setFinalGroup={setFinalGroup}
+              incrementFormStage={incrementFormStage}
+            />
+          )}
+          {formStage === formStages.detailsForm && (
+            <DetailsForm
+              detailsForm={detailsForm}
+              setDetailsForm={setDetailsForm}
+              incrementFormStage={incrementFormStage}
+            />
+          )}
+          {formStage === formStages.emailForm && (
+            <EmailForm
+              inputMembers={inputMembers}
+              incrementFormStage={incrementFormStage}
+              handleEmailSubmit={handleEmailSubmit}
+              setMemberEmails={setMemberEmails}
+              memberEmails={memberEmails}
+            />
+          )}
+          {formStage === formStages.final && <SuccessCard />}
+        </div>
+        <div className="navbar">
+          {show ? (
+            <NavBar
+              formStage={formStage}
+              decrementFormStage={decrementFormStage}
+              incrementFormStage={incrementFormStage}
+            />
+          ) : null}
+        </div>
       </div>
     </div>
   );

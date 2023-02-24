@@ -2,26 +2,26 @@ import React from "react";
 import "../App/App.css";
 import PropTypes from "prop-types";
 
-function ParticipantList({ name, handleClick, handleChange }) {
+function ParticipantList({ name, handleChange, index, inputMembers }) {
   return (
-    <li className="participantListItem">
-      <input
-        type="text"
-        id="participantName"
-        name={name}
-        onChange={handleChange}
-      />
-      <button className="participantFormButtons" onClick={handleClick}>
-        Delete
-      </button>
-    </li>
+    <input
+      className="participantListItem"
+      type="text"
+      id="participantName"
+      name={name}
+      onChange={handleChange}
+      value={inputMembers[index] ? inputMembers[index] : ""}
+      placeholder={`Secret Santa ${index + 1}`}
+    />
   );
 }
 
 ParticipantList.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.number,
   handleClick: PropTypes.func,
   handleChange: PropTypes.func,
+  index: PropTypes.number,
+  inputMembers: PropTypes.object,
 };
 
 export default ParticipantList;

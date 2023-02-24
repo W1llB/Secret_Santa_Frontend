@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function useRandomiser(initialValue) {
-  const [pairArrays, setPairArrays] = useState(initialValue);
-  function pairRandomiser(giftGiversObject) {
+function useRandomiser(giftGiversObject) {
+  const [pairArrays, setPairArrays] = useState(null);
+  useEffect(() => {
     try {
-      let giftGivers = Object.values(giftGiversObject);
+      let giftGivers = removeEmptyStrings(Object.values(giftGiversObject));
       var a = giftGivers.slice(0);
       var b = giftGivers.slice(0);
       var result = [];
@@ -24,17 +24,27 @@ function useRandomiser(initialValue) {
       } else {
         result.push({ a: a[0], b: b[0] });
       }
-
       setPairArrays(result);
     } catch (error) {
       console.log(error);
     }
-  }
-  return [pairArrays, pairRandomiser];
+  }, [giftGiversObject]);
+
+  return [pairArrays];
 }
 
 function extractRandomElement(array) {
   return array.splice(Math.floor(Math.random() * array.length), 1)[0];
+}
+
+function removeEmptyStrings(array) {
+  let cleanedArray = [];
+  for (const string of array) {
+    if (string.length > 0) {
+      cleanedArray.push(string);
+    }
+  }
+  return cleanedArray;
 }
 
 export default useRandomiser;
