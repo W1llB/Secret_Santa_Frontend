@@ -25,6 +25,7 @@ body {
   width: 50%;
   height: 100%;
   min-height: 80vh;
+  font-size: 1.2rem;
   overflow: hidden;
   background-color: #ffffffe3;
   margin-top: 3vmin;
@@ -48,10 +49,11 @@ body {
   justify-content: center;
   align-items: center;
 
+}ol{
+  padding-left: 0px;
 }
-
 input{
-  width: 50%;
+  width: 40%;
   color: rgb(0, 0, 0);
   font-size: 16px;
   line-height: 15px;
@@ -128,6 +130,7 @@ button:focus-visible {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  text-align: left;
   /* flex: 1 1 0px; */
   width: 100%;
   font-size: 1rem;
@@ -141,12 +144,21 @@ button:focus-visible {
   justify-content: space-between;
   align-items: center;
   /* flex: 1 1 0px; */
-  width: 90%;
+  width: 75%;
   font-size: 1rem;
   padding: 10px;
   /* margin: 10px; */
 }
 
+.email-input{
+  width: 60%;
+}
+.stage-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .listContainer {
   display: flex;
@@ -242,4 +254,42 @@ button:focus-visible {
   padding: 2px;
   border-radius: 10px;
   color: #FFFFFF;
+}
+
+@media  screen and (max-width: 768px) {
+  .form-main-card{
+    width: 80%;
+    min-height: 80vh;
+  }
+}
+
+@media  screen and (max-width: 320px) {
+  .form-main-card{
+    width: 90%;
+  }
+
+  .landing-description{
+    width: 90%;
+  }
+  input{
+    width: 90%;
+  }
+
+  .inputFieldContainer{
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+
+  .inputFieldContainerEmail{
+    flex-direction: column;
+    width: 90%;
+    align-items: flex-start;
+  }
+  .email-input{
+    width: 90%;
+  }
+  label{
+    margin-bottom: 10px;
+  }
 }

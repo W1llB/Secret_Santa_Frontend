@@ -8,12 +8,15 @@ export default function LandingCard({ incrementFormStage }) {
   return (
     <div className="sub-card-container">
       <h2>Planning a Secret Santa?</h2>
+      <h4>Enter the names, details and email out random pairs!</h4>
+
       <p className="landing-description">
-        Add your friends, any gift exchange details, decide whether you want to
+        {/* Add your friends, any gift exchange details, decide whether you want to
         know who is gifting to whom and then decide whether to spread the word
-        via email or send it yourself!
+        via email or send it yourself! */}
+        Before you get started, make sure you have your Secret Santa emails
+        handy!
       </p>
-      <h3> Click Get Started below to begin.</h3>
       <button onClick={handleClick}>Get started!</button>
     </div>
   );
