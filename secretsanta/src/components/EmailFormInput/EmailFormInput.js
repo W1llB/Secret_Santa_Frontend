@@ -6,6 +6,7 @@ export default function EmailFormInput({ name, handleEmailChange }) {
     <div className="inputFieldContainerEmail">
       <label>{name}:</label>
       <input
+        className="email-input"
         name={name}
         onChange={handleEmailChange}
         placeholder={`${name}'s email address`}
