@@ -36,7 +36,6 @@ export default function ParticipantNameForm({
       [e.target.name]: e.target.value,
     });
   }
-  console.log(inputMembers);
   return (
     <div className="stage-container">
       <h3>Please enter the names of your Secret Santas.</h3>

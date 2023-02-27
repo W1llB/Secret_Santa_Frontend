@@ -12,6 +12,9 @@
 ## Testing:
 
 - Add in unit testing for main user flows
+  - Each form stage tested
+  - Mock prop functions
+  - Mock Service workers for EmailJS??
 - Generate coverage reporting - aim for 90% coverage
 
 ## Readme:
