@@ -22,7 +22,7 @@ export default function DetailsForm({
       <h3>Add Gift Exchange details</h3>
       <form className="formContainer" onSubmit={handleSubmit}>
         <div className="inputFieldContainer">
-          <label htmlFor="budget">Enter the organiser name: </label>
+          <label htmlFor="organiserName">Enter the organiser name: </label>
           <input
             id="organiserName"
             name="organiserName"
