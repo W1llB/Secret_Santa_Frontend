@@ -1,3 +1,6 @@
+![unit testing](https://github.com/W1llB/Secret_Santa_Frontend/actions/workflows/actions.yml/badge.svg)
+
+
 Version 2:
 
 - Form with conditional rendering showing different questions
