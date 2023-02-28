@@ -27,7 +27,7 @@ export default async function sendEmail(pair, recipientEmail, detailsObject) {
       },
       publicKey
     );
-    console.log("SUCCESS!");
+    // console.log("SUCCESS!");
   } catch (err) {
     console.log("ERROR", err);
   }
