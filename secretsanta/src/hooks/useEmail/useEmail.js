@@ -45,7 +45,6 @@ export default function useEmail(
         },
         publicKey
       );
-      console.log("SUCCESS!");
       setSuccess(true);
     } catch (err) {
       console.log("ERROR", err);
