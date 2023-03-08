@@ -7,7 +7,7 @@ function ParticipantList({ name, handleChange, index, inputMembers }) {
     <input
       className="participantListItem"
       type="text"
-      id="participantName"
+      // id="participantName"
       name={name}
       onChange={handleChange}
       value={inputMembers[index] ? inputMembers[index] : ""}
