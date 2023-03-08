@@ -4,7 +4,6 @@
 }
 
 body {
-  /* background-color: var(--xmas-red); */
   background-image: url('../../icons/presentbackground.png');
   background-repeat: repeat;
 }
@@ -75,12 +74,10 @@ form{
 li{
   display: flex;
   justify-content: center;
-  /* margin-right: 10px; */
   font-weight: 600;
   width: 100%;
 }
 label{
-  /* margin-right: 10px; */
   font-weight: 600;
   align-items: center;
 }
@@ -131,11 +128,9 @@ button:focus-visible {
   justify-content: space-between;
   align-items: center;
   text-align: left;
-  /* flex: 1 1 0px; */
   width: 100%;
   font-size: 1rem;
   padding: 10px;
-  /* margin: 10px; */
 }
 
 .inputFieldContainerEmail {
@@ -143,11 +138,9 @@ button:focus-visible {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* flex: 1 1 0px; */
   width: 75%;
   font-size: 1rem;
   padding: 10px;
-  /* margin: 10px; */
 }
 
 .email-input{
@@ -293,3 +286,5 @@ button:focus-visible {
     margin-bottom: 10px;
   }
 }
+
+

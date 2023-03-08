@@ -8,19 +8,27 @@ import DetailsForm from "../DetailsForm/DetailsForm";
 import EmailForm from "../EmailForm/EmailForm";
 import SuccessCard from "../SucessCard/SuccessCard";
 import NavBar from "../NavBar/NavBar";
-import sendEmail from "../../modules/sendEmail/sendEmail.mjs";
+import useEmail from "../../hooks/useEmail/useEmail";
 
 function App() {
   const [detailsForm, setDetailsForm] = useState({});
   const [memberEmails, setMemberEmails] = useState({});
   const [inputMembers, setInputMembers] = useState({});
+  const [sendEmail, setSendEmail] = useState(false);
 
   const show = false;
 
   const [formStage, setFormStage] = useState(0);
   const [finalGroup, setFinalGroup] = useState(null);
-  // //custom hook for random pairs
+  // custom hook for random pairs
   const [pairsArrays] = useRandomiser(finalGroup);
+  // custom hook for emails
+  const [error, success] = useEmail(
+    sendEmail,
+    pairsArrays,
+    memberEmails,
+    detailsForm
+  );
 
   const formStages = {
     landingCard: 0,
@@ -41,11 +49,7 @@ function App() {
     }
   }
   function handleEmailSubmit() {
-    if (pairsArrays) {
-      for (const pair of pairsArrays) {
-        sendEmail(pair, memberEmails[pair.a], detailsForm);
-      }
-    }
+    setSendEmail(true);
   }
 
   return (
@@ -80,7 +84,9 @@ function App() {
               memberEmails={memberEmails}
             />
           )}
-          {formStage === formStages.final && <SuccessCard />}
+          {formStage === formStages.final && (
+            <SuccessCard error={error} success={success} />
+          )}
         </div>
         <div className="navbar">
           {show ? (
