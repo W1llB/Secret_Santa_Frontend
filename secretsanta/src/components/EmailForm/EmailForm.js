@@ -30,7 +30,7 @@ export default function EmailForm({
     });
   }
   return (
-    <div>
+    <div className="email-form">
       <h3>Enter the emails of your Secret Santas and send out your pairs.</h3>
       <form onSubmit={handleSubmit}>
         {inputMemberArray.map((name, index) => {
