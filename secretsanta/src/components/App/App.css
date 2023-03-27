@@ -38,7 +38,10 @@ body {
   min-height: 50vmin;
   justify-content: center;
   align-items: center;
-  padding: 20px
+  padding: 20px;
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .navbar{
@@ -151,6 +154,15 @@ button:focus-visible {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.email-form{
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .listContainer {
@@ -223,6 +235,9 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   width: 100%;
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .landing-description{
@@ -233,6 +248,15 @@ button:focus-visible {
 
 .success-message{
   width: 100%;
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.email-success{
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 .error-container{
   height: 50%;
@@ -288,3 +312,11 @@ button:focus-visible {
 }
 
 
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}

@@ -7,7 +7,7 @@ export default function SuccessCard({ error, success, loading }) {
       <h3>Your Santas have been sent their gift recipient!</h3>
       {loading && <p>Sending...</p>}
       {success && (
-        <div>
+        <div className="email-success">
           <p>Emails sent!</p>
         </div>
       )}
