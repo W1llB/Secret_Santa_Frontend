@@ -9,6 +9,7 @@ import EmailForm from "../EmailForm/EmailForm";
 import SuccessCard from "../SucessCard/SuccessCard";
 import NavBar from "../NavBar/NavBar";
 import useEmail from "../../hooks/useEmail/useEmail";
+import DarkMode from "../DarkMode.js/DarkMode";
 
 function App() {
   const [detailsForm, setDetailsForm] = useState({});
@@ -54,6 +55,7 @@ function App() {
 
   return (
     <div className="App">
+      <DarkMode />
       <div className="form-main-card">
         <Header />
         <div className="input-card">
