@@ -7,7 +7,7 @@ import LandingCard from "../LandingCard/LandingCard";
 import DetailsForm from "../DetailsForm/DetailsForm";
 import EmailForm from "../EmailForm/EmailForm";
 import SuccessCard from "../SucessCard/SuccessCard";
-import NavBar from "../NavBar/NavBar";
+// import NavBar from "../NavBar/NavBar";
 import useEmail from "../../hooks/useEmail/useEmail";
 
 function App() {
@@ -15,8 +15,10 @@ function App() {
   const [memberEmails, setMemberEmails] = useState({});
   const [inputMembers, setInputMembers] = useState({});
   const [sendEmail, setSendEmail] = useState(false);
-
-  const show = false;
+  const [darkMode, setDarkMode] = useState(() => {
+    return JSON.parse(localStorage.getItem("darkmode")) || false;
+  });
+  // const show = false;
 
   const [formStage, setFormStage] = useState(0);
   const [finalGroup, setFinalGroup] = useState(null);
@@ -43,19 +45,19 @@ function App() {
     }
   }
 
-  function decrementFormStage() {
-    if (formStage > 0 && formStage < 5) {
-      setFormStage(formStage - 1);
-    }
-  }
+  // function decrementFormStage() {
+  //   if (formStage > 0 && formStage < 5) {
+  //     setFormStage(formStage - 1);
+  //   }
+  // }
   function handleEmailSubmit() {
     setSendEmail(true);
   }
 
   return (
-    <div className="App">
-      <div className="form-main-card">
-        <Header />
+    <div className={darkMode ? "app-dark" : "app"}>
+      <div className={darkMode ? "form-main-card-dark" : "form-main-card"}>
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
         <div className="input-card">
           {formStage === formStages.landingCard && (
             <LandingCard incrementFormStage={incrementFormStage} />
@@ -88,7 +90,7 @@ function App() {
             <SuccessCard error={error} success={success} />
           )}
         </div>
-        <div className="navbar">
+        {/* <div className="navbar">
           {show ? (
             <NavBar
               formStage={formStage}
@@ -96,7 +98,7 @@ function App() {
               incrementFormStage={incrementFormStage}
             />
           ) : null}
-        </div>
+        </div> */}
       </div>
     </div>
   );
