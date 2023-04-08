@@ -5,41 +5,50 @@
 
 
 
-.App-dark {
+.app-dark {
   display: flex;
   text-align: center;
   flex-direction: column;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   background-image: url('../../icons/presentbackground_dark.png');
   background-repeat: repeat;
-  height: 100vh;
+  background-position: center;
+  min-height: 100vmin;
 }
 
-.App {
+.app {
   display: flex;
   text-align: center;
   flex-direction: column;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   background-image: url('../../icons/presentbackground.png');
   background-repeat: repeat;
   background-position: center;
-  height: 100vh;
-}
+  min-height: 100vmin;
 
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.darkmode-toggle {
+  filter: invert(1);
+}
 
 .form-main-card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 50%;
-  height: 90%;
-  min-height: 80vh;
+  min-height: 80vmin;
   font-size: 1.2rem;
   overflow: hidden;
   background-color: #ffffffe3;
-  margin-top: 3vmin;
+  margin-top: 1vmin;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 20px;
 }
@@ -47,9 +56,9 @@
 .input-card{
   display: flex;
   height: 100%;
-  min-height: 50vmin;
+  min-height: 65vmin;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 20px;
   animation: fadeInAnimation ease 2s;
   animation-iteration-count: 1;
@@ -286,13 +295,16 @@ button:focus-visible {
 }
 
 @media  screen and (max-width: 768px) {
+  .app{
+    justify-content: flex-start;
+  }
   .form-main-card{
     width: 80%;
-    min-height: 80vh;
   }
 }
 
 @media  screen and (max-width: 425px) {
+
   .form-main-card{
     width: 90%;
   }
@@ -307,7 +319,6 @@ button:focus-visible {
   .inputFieldContainer{
     flex-direction: column;
     align-items: flex-start;
-
   }
 
   .inputFieldContainerEmail{
