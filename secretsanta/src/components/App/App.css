@@ -15,6 +15,7 @@
   background-repeat: repeat;
   background-position: center;
   min-height: 100vmin;
+  color:#FFFFFF
 }
 
 .app {
@@ -23,7 +24,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('../../icons/presentbackground.png');
+  background-image: url('../../icons/presentbackgroundsmall.png');
   background-repeat: repeat;
   background-position: center;
   min-height: 100vmin;
@@ -53,13 +54,27 @@
   border-radius: 20px;
 }
 
+.form-main-card-dark{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+  min-height: 80vmin;
+  font-size: 1.2rem;
+  overflow: hidden;
+  background-color: #14052ee3;
+  margin-top: 1vmin;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 20px;
+}
+
 .input-card{
   display: flex;
   height: 100%;
   min-height: 65vmin;
   justify-content: center;
   align-items: flex-start;
-  padding: 20px;
+  padding: 10px;
   animation: fadeInAnimation ease 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -88,6 +103,7 @@ input{
   background: rgb(251, 251, 251);
   transition: all 0.1s ease 0s;
 }
+
 form{
   display: flex;
   flex-direction: column;
@@ -169,6 +185,10 @@ button:focus-visible {
 
 .email-input{
   width: 60%;
+}
+.email-input-dark{
+  width: 60%;
+  background-color: #848ea5;
 }
 .stage-container{
   display: flex;
@@ -295,9 +315,7 @@ button:focus-visible {
 }
 
 @media  screen and (max-width: 768px) {
-  .app{
-    justify-content: flex-start;
-  }
+
   .form-main-card{
     width: 80%;
   }
@@ -306,6 +324,9 @@ button:focus-visible {
 @media  screen and (max-width: 425px) {
 
   .form-main-card{
+    width: 90%;
+  }
+  .form-main-card-dark{
     width: 90%;
   }
 

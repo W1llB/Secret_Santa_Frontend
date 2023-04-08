@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import darkModeIconLight from "../../icons/night-mode-light.png";
 import darkModeIconDark from "../../icons/night-mode-dark.png";
 
-export default function DarkMode() {
-  const [darkMode, setDarkMode] = useState(() => {
-    return JSON.parse(localStorage.getItem("darkmode")) || false;
-  });
-
+export default function DarkMode({ darkMode, setDarkMode }) {
   useEffect(() => {
     localStorage.setItem("darkmode", JSON.stringify(darkMode));
   }, [darkMode]);
@@ -23,3 +20,8 @@ export default function DarkMode() {
     />
   );
 }
+
+DarkMode.propTypes = {
+  darkMode: PropTypes.bool,
+  setDarkMode: PropTypes.func,
+};

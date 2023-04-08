@@ -15,7 +15,9 @@ function App() {
   const [memberEmails, setMemberEmails] = useState({});
   const [inputMembers, setInputMembers] = useState({});
   const [sendEmail, setSendEmail] = useState(false);
-
+  const [darkMode, setDarkMode] = useState(() => {
+    return JSON.parse(localStorage.getItem("darkmode")) || false;
+  });
   // const show = false;
 
   const [formStage, setFormStage] = useState(0);
@@ -53,9 +55,9 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div className="form-main-card">
-        <Header />
+    <div className={darkMode ? "app-dark" : "app"}>
+      <div className={darkMode ? "form-main-card-dark" : "form-main-card"}>
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
         <div className="input-card">
           {formStage === formStages.landingCard && (
             <LandingCard incrementFormStage={incrementFormStage} />
