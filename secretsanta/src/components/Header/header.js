@@ -16,6 +16,6 @@ function Header({ darkMode, setDarkMode }) {
 export default Header;
 
 Header.propTypes = {
-  darkMode: PropTypes.boolean,
+  darkMode: PropTypes.bool,
   setDarkMode: PropTypes.func,
 };
