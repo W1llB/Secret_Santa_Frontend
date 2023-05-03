@@ -18,7 +18,6 @@ function App() {
   const [darkMode, setDarkMode] = useState(() => {
     return JSON.parse(localStorage.getItem("darkmode")) || false;
   });
-  // const show = false;
 
   const [formStage, setFormStage] = useState(0);
   const [finalGroup, setFinalGroup] = useState(null);

@@ -59,5 +59,6 @@ export default function useEmail(
       }
     }
   }, [sendEmails]);
+
   return [error, success];
 }
