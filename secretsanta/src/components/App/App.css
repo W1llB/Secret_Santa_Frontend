@@ -315,6 +315,19 @@ button:focus-visible {
 }
 
 @media  screen and (max-width: 768px) {
+  .app-dark{
+    position: absolute;
+    height: 100%;
+    justify-content: start;
+
+  }
+
+  .app{
+    position: absolute;
+    height: 100%;
+    justify-content: start;
+
+  }
 
   .form-main-card{
     width: 80%;
